@@ -1,0 +1,6 @@
+employee_id,employee_name,department_id,department_name,bio
+1,Alice,10,Engineering,Senior software engineer with a background in machine learning and data engineering.
+2,Bob,10,Engineering,DevOps specialist focusing on cloud infrastructure and automation.
+3,Charlie,20,Marketing,Creative marketing strategist with 5 years of experience in digital campaigns.
+4,Diana,30,HR,Experienced HR manager skilled in recruitment and employee relations.
+5,Eva,20,Marketing,Junior content creator with a passion for video production and social media.
