@@ -1,0 +1,16 @@
+{
+  "2008.13538v1": {
+    "title": "Scientific Paper Recommendation: A Survey",
+    "authors": [
+      "Xiaomei Bai",
+      "Mengyang Wang",
+      "Ivan Lee",
+      "Zhuo Yang",
+      "Xiangjie Kong",
+      "Feng Xia"
+    ],
+    "summary": "Globally, recommendation services have become important due to the fact that\nthey support e-commerce applications and different research communities.\nRecommender systems have a large number of applications in many fields\nincluding economic, education, and scientific research. Different empirical\nstudies have shown that recommender systems are more effective and reliable\nthan keyword-based search engines for extracting useful knowledge from massive\namounts of data. The problem of recommending similar scientific articles in\nscientific community is called scientific paper recommendation. Scientific\npaper recommendation aims to recommend new articles or classical articles that\nmatch researchers' interests. It has become an attractive area of study since\nthe number of scholarly papers increases exponentially. In this survey, we\nfirst introduce the importance and advantages of paper recommender systems.\nSecond, we review the recommendation algorithms and methods, such as\nContent-Based methods, Collaborative Filtering methods, Graph-Based methods and\nHybrid methods. Then, we introduce the evaluation methods of different\nrecommender systems. Finally, we summarize open issues in the paper recommender\nsystems, including cold start, sparsity, scalability, privacy, serendipity and\nunified scholarly data standards. The purpose of this survey is to provide\ncomprehensive reviews on scholarly paper recommendation.",
+    "pdf_url": "http://arxiv.org/pdf/2008.13538v1",
+    "published": "2020-08-10"
+  }
+}

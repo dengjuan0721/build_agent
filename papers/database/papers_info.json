@@ -1,0 +1,52 @@
+{
+  "1606.00740v1": {
+    "title": "The Meaning of Null in Databases and Programming Languages",
+    "authors": [
+      "Kenneth Baclawski"
+    ],
+    "summary": "The meaning of null in relational databases is a major source of confusion\nnot only among database users but also among database textbook writers. The\npurpose of this article is to examine what database nulls could mean and to\nmake some modest suggestions about how to reduce the confusion.",
+    "pdf_url": "http://arxiv.org/pdf/1606.00740v1",
+    "published": "2016-06-02"
+  },
+  "1809.03445v1": {
+    "title": "A collection of database industrial techniques and optimization approaches of database operations",
+    "authors": [
+      "Jasper Kyle Catapang"
+    ],
+    "summary": "Databases play an essential role in our society today. Databases are embedded\nin sectors like corporations, institutions, and government organizations, among\nothers. These databases are used for our video and audio streaming platforms,\nsocial gaming, finances, cloud storage, e-commerce, healthcare, economy, etc.\nIt is therefore imperative that we learn how to properly execute database\noperations and efficiently implement methodologies so that we may optimize the\nperformance of databases.",
+    "pdf_url": "http://arxiv.org/pdf/1809.03445v1",
+    "published": "2018-09-10"
+  },
+  "1911.11184v1": {
+    "title": "Managing Variability in Relational Databases by VDBMS",
+    "authors": [
+      "Parisa Ataei",
+      "Qiaoran Li",
+      "Eric Walkingshaw",
+      "Arash Termehchy"
+    ],
+    "summary": "Variability inherently exists in databases in various contexts which creates\ndatabase variants. For example, variants of a database could have different\nschemas/content (database evolution problem), variants of a database could root\nfrom different sources (data integration problem), variants of a database could\nbe deployed differently for specific application domain (deploying a database\nfor different configurations of a software system), etc. Unfortunately, while\nthere are specific solutions to each of the problems arising in these contexts,\nthere is no general solution that accounts for variability in databases and\naddresses managing variability within a database. In this paper, we formally\ndefine variational databases (VDBs) and statically-typed variational relational\nalgebra (VRA) to query VDBs---both database and queries explicitly account for\nvariation. We also design and implement variational database management system\n(VDBMS) to run variational queries over a VDB effectively and efficiently. To\nassess this, we generate two VDBs from real-world databases in the context of\nsoftware development and database evolution with a set of experimental queries\nfor each.",
+    "pdf_url": "http://arxiv.org/pdf/1911.11184v1",
+    "published": "2019-11-25"
+  },
+  "cs/0702075v1": {
+    "title": "Firebird Database Backup by Serialized Database Table Dump",
+    "authors": [
+      "Maurice HT Ling"
+    ],
+    "summary": "This paper presents a simple data dump and load utility for Firebird\ndatabases which mimics mysqldump in MySQL. This utility, fb_dump and fb_load,\nfor dumping and loading respectively, retrieves each database table using\nkinterbasdb and serializes the data using marshal module. This utility has two\nadvantages over the standard Firebird database backup utility, gbak. Firstly,\nit is able to backup and restore single database tables which might help to\nrecover corrupted databases. Secondly, the output is in text-coded format (from\nmarshal module) making it more resilient than a compressed text backup, as in\nthe case of using gbak.",
+    "pdf_url": "http://arxiv.org/pdf/cs/0702075v1",
+    "published": "2007-02-13"
+  },
+  "0811.2117v1": {
+    "title": "Disjunctive Databases for Representing Repairs",
+    "authors": [
+      "Cristian Molinaro",
+      "Jan Chomicki",
+      "Jerzy Marcinkowski"
+    ],
+    "summary": "This paper addresses the problem of representing the set of repairs of a\npossibly inconsistent database by means of a disjunctive database.\nSpecifically, the class of denial constraints is considered. We show that,\ngiven a database and a set of denial constraints, there exists a (unique)\ndisjunctive database, called canonical, which represents the repairs of the\ndatabase w.r.t. the constraints and is contained in any other disjunctive\ndatabase with the same set of minimal models. We propose an algorithm for\ncomputing the canonical disjunctive database. Finally, we study the size of the\ncanonical disjunctive database in the presence of functional dependencies for\nboth repairs and cardinality-based repairs.",
+    "pdf_url": "http://arxiv.org/pdf/0811.2117v1",
+    "published": "2008-11-13"
+  }
+}

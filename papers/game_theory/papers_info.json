@@ -1,0 +1,53 @@
+{
+  "2504.13939v1": {
+    "title": "Compendium of Advances in Game Theory: Classical, Differential, Algorithmic, Non-Archimedean and Quantum Game",
+    "authors": [
+      "Bourama Toni"
+    ],
+    "summary": "This compendium features advances in Game Theory, to include:\n  Classical Game Theory: Cooperative and non-cooperative. Zero-sum and non-zero\nsum games. Potential and Congestion games. Mean Field games. Nash Equilibrium,\nCorrelated Nash Equilibrium and Approximate Nash Equilibrium. Evolutionary Game\nTheory.\n  Intelligent Game: Differential Game Theory. Algorithm Game Theory and\nSecurity Games.\n  Quantum Games and Quantumization of classical games such as the Battle of the\nSexes.\n  Non-Archimedean and p-adic game theory and its growing relevancy as the\ndomains of game-theoretic application expand.\n  p-adic quantum game to leverage and combine the distinguishing features of\nnon-Archimedean analysis and quantum information theory. This is a novel\ngame-theoretic approach with great potential of application.\n  In times of exponential growth of artificial intelligence and machine\nlearning and the dawn of post-human mathematical creativity, this compendium is\nmeant to be a reference of choice for all game theory researchers.",
+    "pdf_url": "http://arxiv.org/pdf/2504.13939v1",
+    "published": "2025-04-15"
+  },
+  "0907.5469v1": {
+    "title": "Feasibility/Desirability Games for Normal Form Games, Choice Models and Evolutionary Games",
+    "authors": [
+      "Pierre Lescanne"
+    ],
+    "summary": "An abstraction of normal form games is proposed, called\nFeasibility/Desirability Games (or FD Games in short). FD Games can be seen\nfrom three points of view: as a new presentation of games in which Nash\nequilibria can be found, as choice models in microeconomics or as a model of\nevolution in games.",
+    "pdf_url": "http://arxiv.org/pdf/0907.5469v1",
+    "published": "2009-07-31"
+  },
+  "0912.0448v1": {
+    "title": "The strange algebra of combinatorial games",
+    "authors": [
+      "Johan W\u00e4stlund"
+    ],
+    "summary": "We present an algebraic framework for the analysis of combinatorial games.\nThis framework embraces the classical theory of partizan games as well as a\nnumber of misere games, comply-constrain games, and card games that have been\nstudied more recently. It focuses on the construction of the quotient monoid of\na game, an idea that has been successively applied to several classes of games.",
+    "pdf_url": "http://arxiv.org/pdf/0912.0448v1",
+    "published": "2009-12-02"
+  },
+  "1202.3898v1": {
+    "title": "Exact Algorithms for Solving Stochastic Games",
+    "authors": [
+      "Kristoffer Arnsfelt Hansen",
+      "Michal Koucky",
+      "Niels Lauritzen",
+      "Peter Bro Miltersen",
+      "Elias Tsigaridas"
+    ],
+    "summary": "Shapley's discounted stochastic games, Everett's recursive games and\nGillette's undiscounted stochastic games are classical models of game theory\ndescribing two-player zero-sum games of potentially infinite duration. We\ndescribe algorithms for exactly solving these games.",
+    "pdf_url": "http://arxiv.org/pdf/1202.3898v1",
+    "published": "2012-02-17"
+  },
+  "0811.0071v1": {
+    "title": "Conversion/Preference Games",
+    "authors": [
+      "St\u00e9phane Le Roux",
+      "Pierre Lescanne",
+      "Ren\u00e9 Vestergaard"
+    ],
+    "summary": "We introduce the concept of Conversion/Preference Games, or CP games for\nshort. CP games generalize the standard notion of strategic games. First we\nexemplify the use of CP games. Second we formally introduce and define the\nCP-games formalism. Then we sketch two `real-life' applications, namely a\nconnection between CP games and gene regulation networks, and the use of CP\ngames to formalize implied information in Chinese Wall security. We end with a\nstudy of a particular fixed-point construction over CP games and of the\nresulting existence of equilibria in possibly infinite games.",
+    "pdf_url": "http://arxiv.org/pdf/0811.0071v1",
+    "published": "2008-11-03"
+  }
+}

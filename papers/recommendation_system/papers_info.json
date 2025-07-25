@@ -1,0 +1,53 @@
+{
+  "2411.07589v1": {
+    "title": "Overhead-free User-side Recommender Systems",
+    "authors": [
+      "Ryoma Sato"
+    ],
+    "summary": "Traditionally, recommendation algorithms have been designed for service\ndevelopers. But recently, a new paradigm called user-side recommender systems\nhas been proposed. User-side recommender systems are built and used by end\nusers, in sharp contrast to traditional provider-side recommender systems. Even\nif the official recommender system offered by the provider is not fair, end\nusers can create and enjoy their own user-side recommender systems by\nthemselves. Although the concept of user-side recommender systems is\nattractive, the problem is they require tremendous communication costs between\nthe user and the official system. Even the most efficient user-side recommender\nsystems require about 5 times more costs than provider-side recommender\nsystems. Such high costs hinder the adoption of user-side recommender systems.\nIn this paper, we propose overhead-free user-side recommender systems,\nRecCycle, which realizes user-side recommender systems without any\ncommunication overhead. The main idea of RecCycle is to recycle past\nrecommendation results offered by the provider's recommender systems. The\ningredients of RecCycle can be retrieved ``for free,'' and it greatly reduces\nthe cost of user-side recommendations. In the experiments, we confirm that\nRecCycle performs as well as state-of-the-art user-side recommendation\nalgorithms while RecCycle reduces costs significantly.",
+    "pdf_url": "http://arxiv.org/pdf/2411.07589v1",
+    "published": "2024-11-12"
+  },
+  "0908.3633v1": {
+    "title": "Maximizing profit using recommender systems",
+    "authors": [
+      "Aparna Das",
+      "Claire Mathieu",
+      "Daniel Ricketts"
+    ],
+    "summary": "Traditional recommendation systems make recommendations based solely on the\ncustomer's past purchases, product ratings and demographic data without\nconsidering the profitability the items being recommended. In this work we\nstudy the question of how a vendor can directly incorporate the profitability\nof items into its recommender so as to maximize its expected profit while still\nproviding accurate recommendations. Our approach uses the output of any\ntraditional recommender system and adjust them according to item\nprofitabilities. Our approach is parameterized so the vendor can control how\nmuch the recommendation incorporating profits can deviate from the traditional\nrecommendation. We study our approach under two settings and show that it\nachieves approximately 22% more profit than traditional recommendations.",
+    "pdf_url": "http://arxiv.org/pdf/0908.3633v1",
+    "published": "2009-08-25"
+  },
+  "0909.3472v2": {
+    "title": "The Universal Recommender",
+    "authors": [
+      "J\u00e9r\u00f4me Kunegis",
+      "Alan Said",
+      "Winfried Umbrath"
+    ],
+    "summary": "We describe the Universal Recommender, a recommender system for semantic\ndatasets that generalizes domain-specific recommenders such as content-based,\ncollaborative, social, bibliographic, lexicographic, hybrid and other\nrecommenders. In contrast to existing recommender systems, the Universal\nRecommender applies to any dataset that allows a semantic representation. We\ndescribe the scalable three-stage architecture of the Universal Recommender and\nits application to Internet Protocol Television (IPTV). To achieve good\nrecommendation accuracy, several novel machine learning and optimization\nproblems are identified. We finally give a brief argument supporting the need\nfor machine learning recommenders.",
+    "pdf_url": "http://arxiv.org/pdf/0909.3472v2",
+    "published": "2009-09-18"
+  },
+  "2109.09816v2": {
+    "title": "Deviation-Based Learning: Training Recommender Systems Using Informed User Choice",
+    "authors": [
+      "Junpei Komiyama",
+      "Shunya Noda"
+    ],
+    "summary": "This paper proposes a new approach to training recommender systems called\ndeviation-based learning. The recommender and rational users have different\nknowledge. The recommender learns user knowledge by observing what action users\ntake upon receiving recommendations. Learning eventually stalls if the\nrecommender always suggests a choice: Before the recommender completes\nlearning, users start following the recommendations blindly, and their choices\ndo not reflect their knowledge. The learning rate and social welfare improve\nsubstantially if the recommender abstains from recommending a particular choice\nwhen she predicts that multiple alternatives will produce a similar payoff.",
+    "pdf_url": "http://arxiv.org/pdf/2109.09816v2",
+    "published": "2021-09-20"
+  },
+  "2410.11870v1": {
+    "title": "Post-Userist Recommender Systems : A Manifesto",
+    "authors": [
+      "Robin Burke",
+      "Morgan Sylvester"
+    ],
+    "summary": "We define userist recommendation as an approach to recommender systems framed\nsolely in terms of the relation between the user and system. Post-userist\nrecommendation posits a larger field of relations in which stakeholders are\nembedded and distinguishes the recommendation function (which can potentially\nconnect creators with audiences) from generative media. We argue that in the\nera of generative media, userist recommendation becomes indistinguishable from\npersonalized media generation, and therefore post-userist recommendation is the\nonly path forward for recommender systems research.",
+    "pdf_url": "http://arxiv.org/pdf/2410.11870v1",
+    "published": "2024-10-09"
+  }
+}

@@ -1,0 +1,15 @@
+# pyproject.toml
+[project]
+name = "build_agent"
+version = "0.1.0"
+description = "An agent built with MCP and LLMs."
+dependencies = [
+    "anthropic>=0.58.2",
+    "nest-asyncio>=1.6.0",
+    "python-dotenv>=1.1.1",
+    "openai",
+    "mcp",
+    "arxiv",
+]
+
+[tool.uv]

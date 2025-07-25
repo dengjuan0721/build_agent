@@ -1,0 +1,11 @@
+{
+  "2411.07589v1": {
+    "title": "Overhead-free User-side Recommender Systems",
+    "authors": [
+      "Ryoma Sato"
+    ],
+    "summary": "Traditionally, recommendation algorithms have been designed for service\ndevelopers. But recently, a new paradigm called user-side recommender systems\nhas been proposed. User-side recommender systems are built and used by end\nusers, in sharp contrast to traditional provider-side recommender systems. Even\nif the official recommender system offered by the provider is not fair, end\nusers can create and enjoy their own user-side recommender systems by\nthemselves. Although the concept of user-side recommender systems is\nattractive, the problem is they require tremendous communication costs between\nthe user and the official system. Even the most efficient user-side recommender\nsystems require about 5 times more costs than provider-side recommender\nsystems. Such high costs hinder the adoption of user-side recommender systems.\nIn this paper, we propose overhead-free user-side recommender systems,\nRecCycle, which realizes user-side recommender systems without any\ncommunication overhead. The main idea of RecCycle is to recycle past\nrecommendation results offered by the provider's recommender systems. The\ningredients of RecCycle can be retrieved ``for free,'' and it greatly reduces\nthe cost of user-side recommendations. In the experiments, we confirm that\nRecCycle performs as well as state-of-the-art user-side recommendation\nalgorithms while RecCycle reduces costs significantly.",
+    "pdf_url": "http://arxiv.org/pdf/2411.07589v1",
+    "published": "2024-11-12"
+  }
+}
