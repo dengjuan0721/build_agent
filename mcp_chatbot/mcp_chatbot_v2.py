@@ -7,16 +7,10 @@ from contextlib import AsyncExitStack
 import json
 import asyncio
 from openai import OpenAI
+from openai.types.chat import ChatCompletionToolParam
 import os
 
 load_dotenv()
-
-
-class ToolDefinition(TypedDict):
-    name: str
-    description: str
-    input_schema: dict
-
 
 class MCP_ChatBot:
     def __init__(self):
@@ -27,7 +21,7 @@ class MCP_ChatBot:
             api_key=os.getenv("DEEPSEEK_API_KEY"),
             base_url="https://api.deepseek.com/v1"
         )
-        self.available_tools: List[ToolDefinition] = []  # new
+        self.available_tools: List[ChatCompletionToolParam] = []  # new
         self.tool_to_session: Dict[str, ClientSession] = {}  # new
 
     async def connect_to_server(self, server_name: str, server_config: dict) -> None:

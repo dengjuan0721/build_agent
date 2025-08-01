@@ -1,0 +1,34 @@
+{
+      "mcpServers": {
+
+          "filesystem": {
+              "command": "npx",
+              "args": [
+                  "-y",
+                  "@modelcontextprotocol/server-filesystem",
+                  "."
+              ]
+          },
+
+          "kgServer": {
+              "command": "uv",
+              "args":["run", "kg_server.py"]
+          },
+
+          "parquetServer": {
+              "command": "uv",
+              "args":["run", "parquet_server.py"]
+          },
+
+          "kgBuilderServer": {
+              "command": "uv",
+              "args":["run", "kg_builder.py"]
+          },
+
+
+          "fetch": {
+              "command": "uvx",
+              "args": ["mcp-server-fetch"]
+          }
+      }
+  }
