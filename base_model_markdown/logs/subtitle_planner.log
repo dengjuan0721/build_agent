@@ -1,0 +1,281 @@
+2025-08-06 17:17:17,718 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 17:17:17,918 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 17:17:17,918 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-06 17:17:17,926 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 17:23:38,100 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 17:23:38,105 - root - INFO - 开始为主题 '前馈神经网络' 规划子主题...
+2025-08-06 17:23:38,114 - root - INFO - 正在调用 LLM 进行子主题规划...
+2025-08-06 17:23:38,368 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 17:24:17,697 - root - INFO - 子主题规划成功！
+2025-08-06 22:03:08,078 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 22:03:08,273 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 22:03:08,273 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-06 22:03:08,281 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 22:16:39,607 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 22:16:39,812 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 22:16:39,812 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-06 22:16:39,820 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 22:19:17,324 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 22:19:17,521 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 22:19:17,522 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-06 22:19:17,530 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 22:27:16,269 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 22:27:16,279 - root - INFO - 开始为主题 '前馈神经网络' 规划子主题...
+2025-08-06 22:27:16,291 - root - INFO - 正在调用 LLM 进行子主题规划...
+2025-08-06 22:27:16,525 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 22:27:48,165 - root - INFO - 子主题规划成功！
+2025-08-07 16:42:36,849 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-07 16:42:37,043 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 16:42:37,043 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-07 16:42:37,050 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 16:50:18,768 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 16:50:18,779 - root - INFO - 开始为主题 '前馈神经网络' 规划子主题...
+2025-08-07 16:50:18,869 - root - INFO - 正在调用 LLM 进行子主题规划...
+2025-08-07 16:50:19,162 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:51:06,447 - root - INFO - 子主题规划成功！
+2025-08-07 22:13:05,060 - root - INFO - 正在初始化 Subtitle Planner 服务...
+2025-08-07 22:13:05,259 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 22:13:05,259 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-07 22:13:05,267 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 22:36:04,760 - root - INFO - 正在初始化 Subtitle Planner 服务...
+2025-08-07 22:36:04,961 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 22:36:04,961 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-07 22:36:04,969 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 22:36:47,447 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 22:36:47,453 - root - INFO - 开始为主题 '统计语言模型n-gram' 规划子主题...
+2025-08-07 22:36:47,460 - root - INFO - 正在调用 LLM 进行子主题规划...
+2025-08-07 22:36:47,657 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:37:17,442 - root - ERROR - 规划子主题时出错: 'dict' object has no attribute 'model_dump_json'
+Traceback (most recent call last):
+  File "/Users/dengjuan1/build_agent/base_model_markdown/subtitle_planner.py", line 108, in plan_subtitles
+    writing_plan_json = writing_plan_obj.model_dump_json(indent=2)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'model_dump_json'
+2025-08-07 22:37:34,199 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 22:37:34,202 - root - INFO - 开始为主题 '统计语言模型n-gram' 规划子主题...
+2025-08-07 22:37:34,204 - root - INFO - 正在调用 LLM 进行子主题规划...
+2025-08-07 22:37:34,637 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:38:10,487 - root - ERROR - 规划子主题时出错: 'dict' object has no attribute 'model_dump_json'
+Traceback (most recent call last):
+  File "/Users/dengjuan1/build_agent/base_model_markdown/subtitle_planner.py", line 108, in plan_subtitles
+    writing_plan_json = writing_plan_obj.model_dump_json(indent=2)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'model_dump_json'
+2025-08-07 22:38:27,354 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 22:38:27,355 - root - INFO - 开始为主题 '统计语言模型n-gram' 规划子主题...
+2025-08-07 22:38:27,357 - root - INFO - 正在调用 LLM 进行子主题规划...
+2025-08-07 22:38:27,512 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:38:56,280 - root - ERROR - 规划子主题时出错: 'dict' object has no attribute 'model_dump_json'
+Traceback (most recent call last):
+  File "/Users/dengjuan1/build_agent/base_model_markdown/subtitle_planner.py", line 108, in plan_subtitles
+    writing_plan_json = writing_plan_obj.model_dump_json(indent=2)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'model_dump_json'
+2025-08-07 22:45:37,552 - root - INFO - 正在初始化 Subtitle Planner 服务...
+2025-08-07 22:45:37,791 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 22:45:37,791 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-07 22:45:37,801 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 22:47:34,372 - root - INFO - 正在初始化 Subtitle Planner 服务...
+2025-08-07 22:47:34,593 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 22:47:34,593 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-07 22:47:34,602 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 22:49:56,394 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 22:49:56,396 - root - INFO - 开始为主题 '统计语言模型n-gram' 规划子主题...
+2025-08-07 22:49:56,400 - root - INFO - 正在调用 LLM 进行子主题规划...
+2025-08-07 22:49:56,581 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:50:20,239 - root - INFO - 子主题规划成功！
+2025-08-07 22:55:54,874 - root - INFO - 正在初始化 Subtitle Planner 服务...
+2025-08-07 22:55:55,071 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 22:55:55,071 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-07 22:55:55,078 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 22:57:20,083 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 22:57:20,085 - root - INFO - 开始为主题 '统计语言模型n-gram' 规划子主题...
+2025-08-07 22:57:20,087 - root - INFO - 正在调用 LLM 进行子主题规划...
+2025-08-07 22:57:20,272 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:57:49,334 - root - INFO - 子主题规划成功！
+2025-08-07 22:57:49,336 - root - INFO - Generated Writing Plan JSON:
+{
+  "plan": {
+    "01_introduction": {
+      "points": [
+        "n-gram的基本定义",
+        "n-gram在自然语言处理中的定位"
+      ],
+      "conclusion": "本节介绍了n-gram的基本概念及其在自然语言处理中的重要性，为后续深入探讨奠定基础。",
+      "style": "概念性介绍，语言简洁明了，适合初学者理解。"
+    },
+    "02_calculation_methods": {
+      "points": [
+        "n-gram的计算方法",
+        "不同n值（如unigram, bigram, trigram）的选择与影响"
+      ],
+      "conclusion": "通过具体计算方法的学习，读者可以掌握如何构建和应用n-gram模型。",
+      "style": "技术性较强，包含公式或伪代码示例，适合有一定基础的读者。"
+    },
+    "03_applications": {
+      "points": [
+        "n-gram的应用场景",
+        "n-gram在自然语言处理中的实际案例"
+      ],
+      "conclusion": "n-gram在多个实际场景中展现了其强大的应用价值，尤其是在资源受限的环境中。",
+      "style": "案例驱动，结合实际应用场景，增强实用性。"
+    },
+    "04_advantages_limitations": {
+      "points": [
+        "n-gram的优缺点",
+        "n-gram与神经网络模型的对比"
+      ],
+      "conclusion": "了解n-gram的优缺点有助于在实际项目中做出更合理的技术选型。",
+      "style": "对比分析，语言中立，客观评价不同技术的适用性。"
+    },
+    "05_advanced_topics": {
+      "points": [
+        "n-gram的优化技巧",
+        "与其他技术（如平滑技术）的结合使用"
+      ],
+      "conclusion": "高级技巧的掌握可以进一步提升n-gram模型的性能和适用性。",
+      "style": "深入技术细节，适合高级读者或研究者。"
+    },
+    "06_summary": {
+      "points": [
+        "n-gram的核心价值总结",
+        "未来发展趋势展望"
+      ],
+      "conclusion": "n-gram作为经典的自然语言处理技术，依然在现代应用中占有一席之地。",
+      "style": "总结性语言，前瞻性视角，激励读者进一步探索。"
+    }
+  }
+}
+2025-08-07 23:02:27,067 - root - INFO - 正在初始化 Subtitle Planner 服务...
+2025-08-07 23:02:27,265 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 23:02:27,265 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-07 23:02:27,273 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 23:03:56,448 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 23:03:56,450 - root - INFO - 开始为主题 '语言统计模型n-gram' 规划子主题...
+2025-08-07 23:03:56,461 - root - INFO - 正在调用 LLM 进行子主题规划...
+2025-08-07 23:03:56,854 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 23:04:24,519 - root - INFO - 子主题规划成功！
+2025-08-07 23:04:24,520 - root - INFO - Generated Writing Plan JSON:
+{
+  "plan": {
+    "01_introduction": {
+      "points": [
+        "n-gram的定义",
+        "n-gram的基本概念及其在语言统计模型中的地位"
+      ],
+      "conclusion": "本节介绍了n-gram的基本定义及其在语言统计模型中的重要性，为后续深入探讨奠定基础。",
+      "style": "简明扼要，适合初学者理解"
+    },
+    "02_applications": {
+      "points": [
+        "n-gram的应用场景",
+        "n-gram在自然语言处理中的具体应用案例"
+      ],
+      "conclusion": "通过实际应用案例展示了n-gram在自然语言处理中的广泛用途。",
+      "style": "案例驱动，突出实用性"
+    },
+    "03_calculation": {
+      "points": [
+        "n-gram的计算方法",
+        "n-gram的频率统计和概率计算"
+      ],
+      "conclusion": "详细讲解了n-gram的计算方法，为读者提供了实际操作的基础知识。",
+      "style": "技术性强，注重细节"
+    },
+    "04_comparison": {
+      "points": [
+        "n-gram与其他语言模型的比较",
+        "n-gram与隐马尔可夫模型、神经网络语言模型的对比"
+      ],
+      "conclusion": "通过与其他语言模型的比较，帮助读者理解n-gram的独特优势和局限性。",
+      "style": "对比分析，逻辑清晰"
+    },
+    "05_optimization": {
+      "points": [
+        "n-gram的优化方法",
+        "平滑技术（如拉普拉斯平滑、古德-图灵估计）的应用"
+      ],
+      "conclusion": "介绍了n-gram的优化方法，帮助读者在实际应用中提升模型性能。",
+      "style": "技术性强，注重实践"
+    },
+    "06_conclusion": {
+      "points": [
+        "n-gram的优缺点",
+        "n-gram在实际应用中的挑战与解决方案"
+      ],
+      "conclusion": "总结了n-gram的优缺点，并展望了未来可能的改进方向。",
+      "style": "总结性语言，全面概括"
+    }
+  }
+}
+2025-08-07 23:19:28,625 - root - INFO - 正在初始化 Subtitle Planner 服务...
+2025-08-07 23:19:28,826 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 23:19:28,827 - root - INFO - Subtitle Planner MCP 服务已准备就绪...
+2025-08-07 23:19:28,835 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 23:22:17,814 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 23:22:17,826 - root - INFO - 开始为主题 '统计语言模型HMM' 规划子主题...
+2025-08-07 23:22:17,836 - root - INFO - 正在调用 LLM 进行子主题规划...
+2025-08-07 23:22:18,343 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 23:22:55,569 - root - INFO - 子主题规划成功！
+2025-08-07 23:22:55,572 - root - INFO - Generated Writing Plan JSON:
+{
+  "plan": {
+    "01_introduction": {
+      "points": [
+        "HMM的基本概念",
+        "HMM的核心组成部分（状态、观测、转移概率、发射概率）",
+        "HMM的典型应用场景概述"
+      ],
+      "conclusion": "本节介绍了HMM的基本概念和核心组成部分，为后续深入探讨其算法和应用奠定基础。",
+      "style": "概念性介绍，语言简洁明了，避免数学符号"
+    },
+    "02_parameter_estimation": {
+      "points": [
+        "HMM的参数估计方法概述",
+        "最大似然估计在HMM中的应用",
+        "监督学习与非监督学习的区别"
+      ],
+      "conclusion": "本节梳理了HMM参数估计的主要方法，为理解后续Baum-Welch算法做铺垫。",
+      "style": "技术性描述，适当引入数学表达"
+    },
+    "03_decoding_problem": {
+      "points": [
+        "HMM解码问题的定义",
+        "Viterbi算法的原理与步骤",
+        "动态规划在Viterbi算法中的应用",
+        "Viterbi算法的复杂度分析"
+      ],
+      "conclusion": "通过Viterbi算法的详细解析，我们理解了如何高效解决HMM的最可能状态序列问题。",
+      "style": "算法详解，强调步骤逻辑和可视化辅助理解"
+    },
+    "04_learning_problem": {
+      "points": [
+        "HMM学习问题的定义",
+        "Baum-Welch算法的EM框架",
+        "前向-后向算法的角色",
+        "Baum-Welch的迭代优化过程"
+      ],
+      "conclusion": "Baum-Welch算法展示了如何通过无监督学习优化HMM参数，是HMM实际应用的关键技术。",
+      "style": "数学推导与直观解释并重，注意平衡理论深度和可读性"
+    },
+    "05_applications": {
+      "points": [
+        "HMM在自然语言处理中的经典应用（词性标注、命名实体识别等）",
+        "HMM在语音识别中的应用案例",
+        "HMM与其他序列模型的对比（如CRF、RNN）",
+        "HMM的局限性讨论"
+      ],
+      "conclusion": "通过实际应用案例的分析，我们既看到了HMM的强大能力，也认识到其在复杂场景中的局限性。",
+      "style": "案例驱动，强调实际应用价值和技术演进背景"
+    },
+    "06_advanced_topics": {
+      "points": [
+        "HMM的扩展变体（如隐半马尔可夫模型）",
+        "大数据场景下的HMM优化方法",
+        "HMM与深度学习模型的结合方式"
+      ],
+      "conclusion": "这些高级主题展示了HMM技术持续发展的可能性，为研究者提供了进一步探索的方向。",
+      "style": "前瞻性讨论，保持技术严谨性的同时激发创新思考"
+    }
+  }
+}

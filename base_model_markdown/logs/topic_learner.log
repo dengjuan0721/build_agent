@@ -1,0 +1,751 @@
+2025-08-04 23:43:18,668 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-04 23:43:18,866 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-04 23:43:18,866 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-04 23:43:18,875 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-04 23:46:35,472 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-04 23:46:35,477 - root - INFO - 开始从 6 个 URL 学习主题级框架...
+2025-08-04 23:46:35,478 - root - INFO - 正在处理 URL: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview
+2025-08-04 23:46:35,981 - asyncio - ERROR - unhandled exception during asyncio.run() shutdown
+task: <Task finished name='mcp.server.fastmcp.server.FastMCP.run_stdio_async' coro=<FastMCP.run_stdio_async() done, defined at /Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py:2291> exception=BaseExceptionGroup('unhandled errors in a TaskGroup', [BaseExceptionGroup('unhandled errors in a TaskGroup', [BaseExceptionGroup('unhandled errors in a TaskGroup', [KeyboardInterrupt()])])])>
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2298, in wrapper
+  |     return await func(*args)
+  |            ^^^^^^^^^^^^^^^^^
+  |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/fastmcp/server.py", line 632, in run_stdio_async
+  |     async with stdio_server() as (read_stream, write_stream):
+  |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py", line 231, in __aexit__
+  |     await self.gen.athrow(value)
+  |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/stdio.py", line 85, in stdio_server
+  |     async with anyio.create_task_group() as tg:
+  |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | BaseExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Exception Group Traceback (most recent call last):
+    |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/stdio.py", line 88, in stdio_server
+    |     yield read_stream, write_stream
+    |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/fastmcp/server.py", line 633, in run_stdio_async
+    |     await self._mcp_server.run(
+    |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/lowlevel/server.py", line 575, in run
+    |     async with AsyncExitStack() as stack:
+    |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py", line 754, in __aexit__
+    |     raise exc_details[1]
+    |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py", line 737, in __aexit__
+    |     cb_suppress = await cb(*exc_details)
+    |                   ^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/shared/session.py", line 218, in __aexit__
+    |     return await self._task_group.__aexit__(exc_type, exc_val, exc_tb)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+    |     raise BaseExceptionGroup(
+    | BaseExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+    +-+---------------- 1 ----------------
+      | Exception Group Traceback (most recent call last):
+      |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/lowlevel/server.py", line 586, in run
+      |     async with anyio.create_task_group() as tg:
+      |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+      |     raise BaseExceptionGroup(
+      | BaseExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+      +-+---------------- 1 ----------------
+        | Traceback (most recent call last):
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2310, in run
+        |     return runner.run(wrapper())
+        |            ^^^^^^^^^^^^^^^^^^^^^
+        |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+        |     return self._loop.run_until_complete(task)
+        |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 672, in run_until_complete
+        |     self.run_forever()
+        |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 639, in run_forever
+        |     self._run_once()
+        |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py", line 1985, in _run_once
+        |     handle._run()
+        |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/events.py", line 88, in _run
+        |     self._context.run(self._callback, *self._args)
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/lowlevel/server.py", line 610, in _handle_message
+        |     await self._handle_request(message, req, session, lifespan_context, raise_exceptions)
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/lowlevel/server.py", line 647, in _handle_request
+        |     response = await handler(req)
+        |                ^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/lowlevel/server.py", line 463, in handler
+        |     results = await func(tool_name, arguments)
+        |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/fastmcp/server.py", line 274, in call_tool
+        |     return await self._tool_manager.call_tool(name, arguments, context=context, convert_result=True)
+        |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/fastmcp/tools/tool_manager.py", line 83, in call_tool
+        |     return await tool.run(arguments, context=context, convert_result=convert_result)
+        |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/fastmcp/tools/base.py", line 98, in run
+        |     result = await self.fn_metadata.call_fn_with_arg_validation(
+        |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/mcp/server/fastmcp/utilities/func_metadata.py", line 89, in call_fn_with_arg_validation
+        |     return fn(**arguments_parsed_dict)
+        |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/base_model_markdown/topic_learner.py", line 81, in learn_topic_framework_from_urls
+        |     content = _fetch_and_clean_url_text(url)
+        |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/base_model_markdown/topic_learner.py", line 53, in _fetch_and_clean_url_text
+        |     response = requests.get(url, headers=headers, timeout=15)
+        |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/requests/api.py", line 73, in get
+        |     return request("get", url, params=params, **kwargs)
+        |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/requests/api.py", line 59, in request
+        |     return session.request(method=method, url=url, **kwargs)
+        |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+        |     resp = self.send(prep, **send_kwargs)
+        |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+        |     r = adapter.send(request, **kwargs)
+        |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+        |     resp = conn.urlopen(
+        |            ^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+        |     self._prepare_proxy(conn)
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+        |     conn.connect()
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 790, in connect
+        |     sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+        |     ssl_sock = ssl_wrap_socket(
+        |                ^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 480, in ssl_wrap_socket
+        |     ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+        |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/Users/dengjuan1/build_agent/.venv/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 524, in _ssl_wrap_socket_impl
+        |     return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+        |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 455, in wrap_socket
+        |     return self.sslsocket_class._create(
+        |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1042, in _create
+        |     self.do_handshake()
+        |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1320, in do_handshake
+        |     self._sslobj.do_handshake()
+        |   File "/opt/homebrew/Cellar/python@3.12/3.12.2_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 157, in _on_sigint
+        |     raise KeyboardInterrupt()
+        | KeyboardInterrupt
+        +------------------------------------
+2025-08-04 23:46:48,190 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-04 23:46:48,391 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-04 23:46:48,391 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-04 23:46:48,402 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-04 23:47:08,093 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-04 23:47:08,095 - root - INFO - 开始从 6 个 URL 学习主题级框架...
+2025-08-04 23:47:08,095 - root - INFO - 正在处理 URL: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview
+2025-08-04 23:47:09,730 - root - INFO - 正在处理 URL: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices
+2025-08-04 23:47:11,321 - root - INFO - 正在处理 URL: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-generator
+2025-08-04 23:47:12,976 - root - INFO - 正在处理 URL: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables
+2025-08-04 23:47:14,558 - root - INFO - 正在处理 URL: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver
+2025-08-04 23:47:16,191 - root - INFO - 正在处理 URL: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/be-clear-and-direct
+2025-08-04 23:47:17,820 - root - WARNING - 聚合内容过长，将被截断至 60000 字符。
+2025-08-04 23:47:18,288 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 23:47:43,674 - root - INFO - 主题级框架学习成功！
+2025-08-05 18:34:49,309 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-05 18:34:49,502 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-05 18:34:50,480 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-05 18:34:50,503 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-05 18:36:07,899 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-05 18:36:08,098 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-05 18:36:09,095 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-05 18:36:09,124 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-05 18:36:09,140 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-05 18:38:43,350 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-05 18:38:43,360 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview
+2025-08-05 18:38:48,283 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-05 18:38:48,300 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-05 18:38:48,301 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices
+2025-08-05 18:38:52,993 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-05 18:38:53,000 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-05 18:38:53,001 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-generator
+2025-08-05 18:38:57,736 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-05 18:38:57,742 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-05 18:38:57,743 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables
+2025-08-05 18:39:02,424 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-08-05 18:42:56,652 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-05 18:42:56,851 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-05 18:42:57,871 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-05 18:42:57,897 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-05 18:42:57,910 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-05 18:44:54,473 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-05 18:44:54,475 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md
+2025-08-05 18:44:55,416 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-05 18:45:10,686 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md 的分析...
+2025-08-05 18:45:11,679 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 400 Bad Request"
+2025-08-05 18:45:11,680 - mem0.client.utils - ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.mem0.ai/v1/memories/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2025-08-05 18:45:11,686 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-05 18:45:11,706 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-05 18:45:11,707 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables.md
+2025-08-05 18:45:12,505 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-05 18:45:26,163 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables.md 的分析...
+2025-08-05 18:45:27,113 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 400 Bad Request"
+2025-08-05 18:45:27,114 - mem0.client.utils - ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.mem0.ai/v1/memories/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2025-08-05 18:45:27,116 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-05 18:45:27,125 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-05 18:45:27,126 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview.md
+2025-08-05 18:45:28,925 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-05 18:45:44,183 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview.md 的分析...
+2025-08-05 18:45:45,139 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 400 Bad Request"
+2025-08-05 18:45:45,139 - mem0.client.utils - ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.mem0.ai/v1/memories/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2025-08-05 18:45:45,141 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-05 18:45:45,152 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-05 18:45:45,152 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md
+2025-08-05 18:45:45,946 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-05 18:45:58,927 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md 的分析...
+2025-08-05 18:45:59,862 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 400 Bad Request"
+2025-08-05 18:45:59,863 - mem0.client.utils - ERROR - HTTP error occurred: Client error '400 Bad Request' for url 'https://api.mem0.ai/v1/memories/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2025-08-05 18:45:59,864 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:10:06,819 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 00:10:07,052 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 00:10:52,964 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 00:10:53,237 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 00:10:55,708 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-06 00:10:55,731 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-06 00:10:55,747 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 00:12:41,230 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:12:41,232 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md
+2025-08-06 00:12:46,345 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:13:00,117 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md 的分析...
+2025-08-06 00:13:08,660 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 00:13:08,669 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:13:08,679 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:13:08,680 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md
+2025-08-06 00:13:15,627 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:13:30,820 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md 的分析...
+2025-08-06 00:13:34,196 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 00:13:34,199 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:13:34,207 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:13:34,207 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables.md
+2025-08-06 00:13:40,047 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:13:53,841 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables.md 的分析...
+2025-08-06 00:14:01,090 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 00:14:01,095 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:16:49,101 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 00:16:49,461 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 00:16:51,947 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-06 00:16:51,979 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-06 00:16:51,996 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 00:17:28,089 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:17:28,091 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md
+2025-08-06 00:17:29,519 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:17:44,536 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md 的分析...
+2025-08-06 00:17:44,542 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:17:44,542 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md
+2025-08-06 00:17:46,816 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:18:01,949 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md 的分析...
+2025-08-06 00:44:36,946 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 00:44:37,262 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 00:44:38,622 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-06 00:44:38,648 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-06 00:44:38,662 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 00:45:01,585 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:45:01,588 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md
+2025-08-06 00:45:03,701 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:45:15,551 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md 的分析...
+2025-08-06 00:45:18,867 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 00:45:18,874 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md
+2025-08-06 00:45:18,887 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:45:18,902 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:45:18,903 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md
+2025-08-06 00:45:21,091 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:45:36,151 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md 的分析...
+2025-08-06 00:45:42,456 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 00:45:42,465 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md
+2025-08-06 00:45:42,470 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:45:42,491 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:45:42,492 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables.md
+2025-08-06 00:45:46,122 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:45:58,917 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables.md 的分析...
+2025-08-06 00:46:01,922 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 00:46:01,925 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables.md
+2025-08-06 00:46:01,930 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:46:01,941 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:46:01,942 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview.md
+2025-08-06 00:46:03,911 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:46:17,503 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview.md 的分析...
+2025-08-06 00:46:24,830 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 00:46:24,836 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview.md
+2025-08-06 00:46:24,840 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:46:31,401 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:46:31,403 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-06 00:46:32,436 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-06 00:49:07,000 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 00:49:07,262 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 00:49:08,367 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-06 00:49:08,386 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-06 00:49:08,398 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 00:49:31,434 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:49:31,443 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md
+2025-08-06 00:49:32,687 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:49:44,818 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md 的分析...
+2025-08-06 00:49:48,203 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 00:49:48,207 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md
+2025-08-06 00:49:48,212 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:49:48,234 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:49:48,235 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md
+2025-08-06 00:49:49,060 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:50:02,521 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md 的分析...
+2025-08-06 00:50:07,612 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 00:50:07,619 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-improver.md
+2025-08-06 00:50:07,629 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:50:07,647 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:50:07,648 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables.md
+2025-08-06 00:50:09,036 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:50:21,491 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables.md 的分析...
+2025-08-06 00:50:40,814 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 00:50:40,822 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prompt-templates-and-variables.md
+2025-08-06 00:50:40,827 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:50:40,847 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:50:40,849 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview.md
+2025-08-06 00:50:42,022 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:50:55,368 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview.md 的分析...
+2025-08-06 00:50:58,025 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 00:50:58,028 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/overview.md
+2025-08-06 00:50:58,032 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 00:51:04,209 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 00:51:04,210 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-06 00:51:05,500 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-06 00:51:05,503 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+User is analyzing documents related to Claude 4 model and prompt engineering optimization strategies.
+2025-08-06 00:51:05,768 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 00:51:16,643 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-06 17:17:15,614 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 17:17:15,871 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 17:17:16,845 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-06 17:17:16,876 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-06 17:17:16,889 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 17:19:41,979 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 17:19:41,995 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/be-clear-and-direct.md
+2025-08-06 17:19:44,727 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 17:19:59,270 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/be-clear-and-direct.md 的分析...
+2025-08-06 17:20:15,905 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 17:20:15,922 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/be-clear-and-direct.md
+2025-08-06 17:20:15,947 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 17:20:15,967 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 17:20:15,968 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/multishot-prompting.md
+2025-08-06 17:20:18,949 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 17:20:32,945 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/multishot-prompting.md 的分析...
+2025-08-06 17:20:47,297 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 17:20:47,312 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/multishot-prompting.md
+2025-08-06 17:20:47,331 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 17:20:47,347 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 17:20:47,348 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/chain-of-thought.md
+2025-08-06 17:20:50,556 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 17:21:05,238 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/chain-of-thought.md 的分析...
+2025-08-06 17:21:15,013 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 17:21:15,018 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/chain-of-thought.md
+2025-08-06 17:21:15,025 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 17:21:21,239 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 17:21:21,241 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-06 17:21:22,161 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-06 17:21:22,164 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+User is analyzing documents related to Claude 4 model and prompt engineering optimization strategies.
+
+Is focused on clear, direct, and specific prompt design principles in prompt engineering.
+
+Is analyzing the role of multishot prompting in optimizing Claude model outputs.
+
+Includes comparison examples to demonstrate the effects of optimizing prompts.
+
+Emphasizes the importance of well-designed examples to enhance accuracy, consistency, and task handling capabilities.
+
+Uses analogies like 'new employee training' to explain the importance of providing context, clear instructions, and structured steps.
+
+Is discussing the core contributions of the document on 'Chain of Thought' prompting techniques.
+2025-08-06 17:21:22,323 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 17:21:34,457 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-06 22:02:19,286 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 22:02:19,511 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 22:03:06,032 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 22:03:06,292 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 22:03:07,209 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-06 22:03:07,236 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-06 22:03:07,249 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 22:05:25,030 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 22:05:25,033 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/extended-thinking-tips.md
+2025-08-06 22:05:26,299 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 22:05:40,331 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/extended-thinking-tips.md 的分析...
+2025-08-06 22:06:12,197 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 22:06:12,204 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/extended-thinking-tips.md
+2025-08-06 22:06:12,217 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 22:06:12,232 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 22:06:12,233 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/long-context-tips.md
+2025-08-06 22:06:13,327 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 22:06:25,522 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/long-context-tips.md 的分析...
+2025-08-06 22:06:44,069 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 22:06:44,083 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/long-context-tips.md
+2025-08-06 22:06:44,094 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 22:06:44,109 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 22:06:44,111 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/chain-prompts.md
+2025-08-06 22:06:45,346 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 22:07:00,540 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/chain-prompts.md 的分析...
+2025-08-06 22:07:26,228 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 22:07:26,234 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/chain-prompts.md
+2025-08-06 22:07:26,237 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 22:07:26,245 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 22:07:26,245 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prefill-claudes-response.md
+2025-08-06 22:07:27,343 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 22:07:41,394 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prefill-claudes-response.md 的分析...
+2025-08-06 22:07:54,023 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 22:07:54,028 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/prefill-claudes-response.md
+2025-08-06 22:07:54,032 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 22:07:54,043 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 22:07:54,044 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/system-prompts.md
+2025-08-06 22:07:55,074 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 22:08:07,614 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/system-prompts.md 的分析...
+2025-08-06 22:08:22,715 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 22:08:22,720 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/system-prompts.md
+2025-08-06 22:08:22,723 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 22:08:22,730 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 22:08:22,731 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/use-xml-tags.md
+2025-08-06 22:08:23,720 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 22:08:39,250 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/use-xml-tags.md 的分析...
+2025-08-06 22:09:01,678 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-06 22:09:01,688 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/use-xml-tags.md
+2025-08-06 22:09:01,699 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-06 22:09:11,195 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 22:09:11,196 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-06 22:09:12,387 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-06 22:09:12,391 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+该文档是Anthropic Claude AI系统'延展思考'功能的高级使用指南
+
+Is focused on clear, direct, and specific prompt design principles in prompt engineering.
+
+Emphasizes structured prompt design using XML tags and content layout strategies.
+
+Is analyzing the role of multishot prompting in optimizing Claude model outputs.
+
+该文档片段系统阐述了如何通过system参数为Claude赋予特定角色，以提升其在专业场景中的准确性、语气定制和任务专注度。
+
+Is analyzing the document on chain prompts for Claude model.
+
+Is focused on optimizing Claude model's handling of long text inputs.
+
+Is looking for tips on optimizing Claude's response control through pre-filling.
+
+Includes comparison examples to demonstrate the effects of optimizing prompts.
+
+XML标签在构建Claude提示词中提升提示词的清晰度、准确性和可解析性
+2025-08-06 22:09:12,544 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 22:09:27,545 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-06 22:16:37,423 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 22:16:37,670 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 22:16:38,730 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-06 22:16:38,745 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-06 22:16:38,755 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 22:19:14,923 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-06 22:19:15,168 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-06 22:19:16,441 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-06 22:19:16,465 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-06 22:19:16,478 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-06 22:20:13,762 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 22:20:13,772 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-06 22:20:15,002 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-06 22:20:15,006 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+该文档是Anthropic Claude AI系统'延展思考'功能的高级使用指南
+
+Is focused on clear, direct, and specific prompt design principles in prompt engineering.
+
+Emphasizes structured prompt design using XML tags and content layout strategies.
+
+Is analyzing the role of multishot prompting in optimizing Claude model outputs.
+
+该文档片段系统阐述了如何通过system参数为Claude赋予特定角色，以提升其在专业场景中的准确性、语气定制和任务专注度。
+
+Is analyzing the document on chain prompts for Claude model.
+
+Is focused on optimizing Claude model's handling of long text inputs.
+
+Is looking for tips on optimizing Claude's response control through pre-filling.
+
+Includes comparison examples to demonstrate the effects of optimizing prompts.
+
+XML标签在构建Claude提示词中提升提示词的清晰度、准确性和可解析性
+2025-08-06 22:20:15,205 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 22:20:26,208 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-06 22:26:51,334 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-06 22:26:51,343 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-06 22:26:52,465 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-06 22:26:52,471 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+该文档是Anthropic Claude AI系统'延展思考'功能的高级使用指南
+
+Is focused on clear, direct, and specific prompt design principles in prompt engineering.
+
+Emphasizes structured prompt design using XML tags and content layout strategies.
+
+Is analyzing the role of multishot prompting in optimizing Claude model outputs.
+
+该文档片段系统阐述了如何通过system参数为Claude赋予特定角色，以提升其在专业场景中的准确性、语气定制和任务专注度。
+
+Is analyzing the document on chain prompts for Claude model.
+
+Is focused on optimizing Claude model's handling of long text inputs.
+
+Is looking for tips on optimizing Claude's response control through pre-filling.
+
+Includes comparison examples to demonstrate the effects of optimizing prompts.
+
+Emphasizes the importance of well-designed examples to enhance accuracy, consistency, and task handling capabilities.
+2025-08-06 22:26:52,643 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-06 22:27:03,678 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-07 16:42:34,283 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-07 16:42:34,584 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 16:42:35,969 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-07 16:42:35,994 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-07 16:42:36,007 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 16:44:25,962 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 16:44:25,965 - root - INFO - [anthropic_prompt_engineering] 正在学习部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md
+2025-08-07 16:44:27,025 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:44:36,880 - root - INFO - [anthropic_prompt_engineering] 正在记忆关于 https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md 的分析...
+2025-08-07 16:44:44,556 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/ "HTTP/1.1 200 OK"
+2025-08-07 16:44:44,559 - root - INFO - [anthropic_prompt_engineering] 成功记忆部分: https://docs.anthropic.com/zh-CN/docs/build-with-claude/prompt-engineering/claude-4-best-practices.md
+2025-08-07 16:44:44,567 - mcp.server.lowlevel.server - INFO - Warning: DeprecationWarning: output_format='v1.0' is deprecated therefore setting it to 'v1.1' by default. Check out the docs for more information: https://docs.mem0.ai/platform/quickstart#4-1-create-memories
+2025-08-07 16:44:50,557 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 16:44:50,558 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-07 16:44:51,839 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-07 16:44:51,842 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+该文档是Anthropic Claude AI系统'延展思考'功能的高级使用指南
+
+Is focused on clear, direct, and specific prompt design principles in prompt engineering.
+
+Is analyzing best practices for Claude 4 prompt engineering.
+
+Emphasizes structured prompt design using XML tags and content layout strategies.
+
+Is analyzing the role of multishot prompting in optimizing Claude model outputs.
+
+该文档片段系统阐述了如何通过system参数为Claude赋予特定角色，以提升其在专业场景中的准确性、语气定制和任务专注度。
+
+Is analyzing the document on chain prompts for Claude model.
+
+Is focused on optimizing Claude model's handling of long text inputs.
+
+Is looking for tips on optimizing Claude's response control through pre-filling.
+
+Includes comparison examples to demonstrate the effects of optimizing prompts.
+2025-08-07 16:44:52,024 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:45:03,552 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-07 16:47:07,362 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 16:47:07,364 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-07 16:47:08,379 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-07 16:47:08,385 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+该文档是Anthropic Claude AI系统'延展思考'功能的高级使用指南
+
+Is focused on clear, direct, and specific prompt design principles in prompt engineering.
+
+Is analyzing best practices for Claude 4 prompt engineering.
+
+Emphasizes structured prompt design using XML tags and content layout strategies.
+
+Is analyzing the role of multishot prompting in optimizing Claude model outputs.
+
+该文档片段系统阐述了如何通过system参数为Claude赋予特定角色，以提升其在专业场景中的准确性、语气定制和任务专注度。
+
+Is analyzing the document on chain prompts for Claude model.
+
+Is focused on optimizing Claude model's handling of long text inputs.
+
+Is looking for tips on optimizing Claude's response control through pre-filling.
+
+Includes comparison examples to demonstrate the effects of optimizing prompts.
+2025-08-07 16:47:08,535 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 16:47:20,639 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-07 22:13:02,475 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-07 22:13:02,733 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 22:13:04,190 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-07 22:13:04,220 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-07 22:13:04,233 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 22:15:35,837 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 22:15:35,842 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-07 22:15:37,837 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-07 22:15:37,845 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+采用'总-分-总'结构
+
+XML标签在构建Claude提示词中提升提示词的清晰度、准确性和可解析性
+
+该文档片段系统阐述了如何通过system参数为Claude赋予特定角色，以提升其在专业场景中的准确性、语气定制和任务专注度。
+
+提供自然语言工程方法论
+
+提供最佳实践包括一致性和嵌套标签
+
+该文档是Anthropic Claude AI系统'延展思考'功能的高级使用指南
+
+Uses analogies like 'new employee training' to explain the importance of providing context, clear instructions, and structured steps.
+
+提供了优化Claude复杂问题解决能力的实用技巧
+
+通过对比案例展示XML标签对输出质量的显著优化效果
+
+结合大量交互式代码示例和对比案例
+2025-08-07 22:15:38,351 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:15:48,719 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-07 22:36:02,296 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-07 22:36:02,559 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 22:36:03,854 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-07 22:36:03,875 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-07 22:36:03,887 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 22:36:18,531 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 22:36:18,533 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-07 22:36:20,720 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-07 22:36:20,725 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+采用'总-分-总'结构
+
+XML标签在构建Claude提示词中提升提示词的清晰度、准确性和可解析性
+
+该文档片段系统阐述了如何通过system参数为Claude赋予特定角色，以提升其在专业场景中的准确性、语气定制和任务专注度。
+
+提供自然语言工程方法论
+
+提供最佳实践包括一致性和嵌套标签
+
+该文档是Anthropic Claude AI系统'延展思考'功能的高级使用指南
+
+Uses analogies like 'new employee training' to explain the importance of providing context, clear instructions, and structured steps.
+
+提供了优化Claude复杂问题解决能力的实用技巧
+
+通过对比案例展示XML标签对输出质量的显著优化效果
+
+结合大量交互式代码示例和对比案例
+2025-08-07 22:36:20,906 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:36:32,616 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-07 22:45:34,860 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-07 22:45:35,131 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 22:45:36,541 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-07 22:45:36,566 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-07 22:45:36,581 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 22:47:31,916 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-07 22:47:32,197 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 22:47:33,437 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-07 22:47:33,459 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-07 22:47:33,475 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 22:49:29,595 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 22:49:29,598 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-07 22:49:30,753 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-07 22:49:30,756 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+该文档是Anthropic Claude AI系统'延展思考'功能的高级使用指南
+
+Is focused on clear, direct, and specific prompt design principles in prompt engineering.
+
+Is analyzing best practices for Claude 4 prompt engineering.
+
+Emphasizes structured prompt design using XML tags and content layout strategies.
+
+该文档片段系统阐述了如何通过system参数为Claude赋予特定角色，以提升其在专业场景中的准确性、语气定制和任务专注度。
+
+Is analyzing the role of multishot prompting in optimizing Claude model outputs.
+
+Is analyzing the document on chain prompts for Claude model.
+
+Is focused on optimizing Claude model's handling of long text inputs.
+
+Is looking for tips on optimizing Claude's response control through pre-filling.
+
+XML标签在构建Claude提示词中提升提示词的清晰度、准确性和可解析性
+2025-08-07 22:49:30,992 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:49:42,671 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-07 22:55:52,355 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-07 22:55:52,597 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 22:55:54,003 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-07 22:55:54,028 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-07 22:55:54,040 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 22:56:51,561 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 22:56:51,564 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-07 22:56:52,585 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-07 22:56:52,589 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+该文档是Anthropic Claude AI系统'延展思考'功能的高级使用指南
+
+Is focused on clear, direct, and specific prompt design principles in prompt engineering.
+
+Is analyzing best practices for Claude 4 prompt engineering.
+
+Emphasizes structured prompt design using XML tags and content layout strategies.
+
+该文档片段系统阐述了如何通过system参数为Claude赋予特定角色，以提升其在专业场景中的准确性、语气定制和任务专注度。
+
+Is analyzing the role of multishot prompting in optimizing Claude model outputs.
+
+Is analyzing the document on chain prompts for Claude model.
+
+Is focused on optimizing Claude model's handling of long text inputs.
+
+Is looking for tips on optimizing Claude's response control through pre-filling.
+
+XML标签在构建Claude提示词中提升提示词的清晰度、准确性和可解析性
+2025-08-07 22:56:52,862 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 22:57:04,459 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-07 23:02:24,608 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-07 23:02:24,858 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 23:02:26,182 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-07 23:02:26,209 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-07 23:02:26,224 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 23:03:28,325 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 23:03:28,334 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-07 23:03:29,588 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-07 23:03:29,597 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+该文档是Anthropic Claude AI系统'延展思考'功能的高级使用指南
+
+Is focused on clear, direct, and specific prompt design principles in prompt engineering.
+
+Is analyzing best practices for Claude 4 prompt engineering.
+
+Emphasizes structured prompt design using XML tags and content layout strategies.
+
+该文档片段系统阐述了如何通过system参数为Claude赋予特定角色，以提升其在专业场景中的准确性、语气定制和任务专注度。
+
+Is analyzing the role of multishot prompting in optimizing Claude model outputs.
+
+Is analyzing the document on chain prompts for Claude model.
+
+Is focused on optimizing Claude model's handling of long text inputs.
+
+Is looking for tips on optimizing Claude's response control through pre-filling.
+
+XML标签在构建Claude提示词中提升提示词的清晰度、准确性和可解析性
+2025-08-07 23:03:29,870 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 23:03:41,858 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！
+2025-08-07 23:19:25,953 - root - INFO - 正在初始化 Topic Learner 服务...
+2025-08-07 23:19:26,227 - root - INFO - deepseek LLM 客户端初始化成功。
+2025-08-07 23:19:27,634 - httpx - INFO - HTTP Request: GET https://api.mem0.ai/v1/ping/ "HTTP/1.1 200 OK"
+2025-08-07 23:19:27,661 - root - INFO - Topic Learner MCP 服务已准备就绪...
+2025-08-07 23:19:27,674 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-08-07 23:20:38,699 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 23:20:38,708 - root - INFO - [hmm_prompt_engineering] 开始最终蒸馏过程...
+2025-08-07 23:20:40,230 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-07 23:20:46,665 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 23:20:46,669 - root - INFO - [hmm_prompt_engineering] 正在学习部分: https://www.example.com/anthropic-prompt-engineering
+2025-08-07 23:20:48,416 - root - WARNING - 抓取或清理 URL https://www.example.com/anthropic-prompt-engineering 时失败: 404 Client Error: Not Found for url: https://www.example.com/anthropic-prompt-engineering
+2025-08-07 23:21:47,189 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2025-08-07 23:21:47,191 - root - INFO - [anthropic_prompt_engineering] 开始最终蒸馏过程...
+2025-08-07 23:21:48,807 - httpx - INFO - HTTP Request: POST https://api.mem0.ai/v1/memories/search/ "HTTP/1.1 200 OK"
+2025-08-07 23:21:48,812 - root - INFO - [anthropic_prompt_engineering] 检索到用于蒸馏的上下文:
+该文档是Anthropic Claude AI系统'延展思考'功能的高级使用指南
+
+Is focused on clear, direct, and specific prompt design principles in prompt engineering.
+
+Is analyzing best practices for Claude 4 prompt engineering.
+
+Emphasizes structured prompt design using XML tags and content layout strategies.
+
+该文档片段系统阐述了如何通过system参数为Claude赋予特定角色，以提升其在专业场景中的准确性、语气定制和任务专注度。
+
+Is analyzing the role of multishot prompting in optimizing Claude model outputs.
+
+Is analyzing the document on chain prompts for Claude model.
+
+Is focused on optimizing Claude model's handling of long text inputs.
+
+Is looking for tips on optimizing Claude's response control through pre-filling.
+
+XML标签在构建Claude提示词中提升提示词的清晰度、准确性和可解析性
+2025-08-07 23:21:49,435 - httpx - INFO - HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-07 23:22:02,056 - root - INFO - [anthropic_prompt_engineering] 最终框架蒸馏成功！

@@ -1,0 +1,33 @@
+{
+      "mcpServers": {
+          "filesystem": {
+              "command": "npx",
+              "args": [
+                  "-y",
+                  "@modelcontextprotocol/server-filesystem",
+                  "."
+              ]
+          },
+
+          "fetch": {
+              "command": "uvx",
+              "args": ["mcp-server-fetch"]
+          },
+
+
+          "topic_leaner": {
+              "command": "uv",
+              "args":["run", "topic_learner.py"]
+          },
+
+          "subtitle_planner": {
+              "command": "uv",
+              "args":["run", "subtitle_planner.py"]
+          },
+
+          "markdown_maker": {
+              "command": "uv",
+              "args":["run", "markdown_maker.py"]
+          }
+      }
+  }
