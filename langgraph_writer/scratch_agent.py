@@ -31,7 +31,7 @@ class Agent:
     def __call__(self, message):
         self.messages.append({"role": "user", "content": message})
         result = self.execute()
-        self.messages.append({"role": "assistant", "content": result})
+        self.messages.append({"role": "assistant", "content": result}) #这里感觉可以学一下，可以帮助short_term_memory
         return result
 
     def execute(self):
