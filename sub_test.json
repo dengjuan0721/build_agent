@@ -1,0 +1,10 @@
+{
+  'objective': 'Demystify the Transformer neural network architecture introduced in the 2017 paper "Attention Is All You Need", explaining how it replaced sequential processing with self-attention, enabling parallel computation and powering the current generation of generative AI.',
+  'target_audience': 'Technically curious non-experts (e.g., software engineers, students, product managers)',
+  'tone': 'Explanatory, accessible, building intuition through analogies before introducing precise terminology',
+  'table_of_contents': '- Introduction: The Engine of the AI Revolution\n- The Problem: Why Old Architectures Hit a Wall\n  - The Sequential Bottleneck\n  >>> The Vanishing Gradient Problem\n  - A Partial Solution: Attention Mechanisms\n- The Breakthrough: "Attention Is All You Need"\n- The Core Innovation: Understanding Self-Attention\n- Deconstructing the Transformer Architecture\n- Why Transformers Are So Powerful: Key Advantages\n- Real-World Impact: Beyond the Paper\n- Conclusion: A Paradigm Shift and a Look Ahead',
+  'section_to_write': {
+    'title': 'The Vanishing Gradient Problem',
+    'details': 'Describe the difficulty of learning connections between words far apart in a sequence (e.g., the subject of a long sentence and the verb at the end). Use an analogy of a whisper being passed down a long line of people—it gets lost or distorted.'
+  }
+}

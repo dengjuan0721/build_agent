@@ -1,0 +1,11 @@
+- Introduction: The Engine of the AI Revolution
+- The Problem: Why Old Architectures Hit a Wall
+  - The Sequential Bottleneck
+  >>> The Vanishing Gradient Problem
+  - A Partial Solution: Attention Mechanisms
+- The Breakthrough: "Attention Is All You Need"
+- The Core Innovation: Understanding Self-Attention
+- Deconstructing the Transformer Architecture
+- Why Transformers Are So Powerful: Key Advantages
+- Real-World Impact: Beyond the Paper
+- Conclusion: A Paradigm Shift and a Look Ahead

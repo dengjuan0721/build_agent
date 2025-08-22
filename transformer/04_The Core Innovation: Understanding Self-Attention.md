@@ -1,0 +1,13 @@
+# The Core Innovation: Understanding Self-Attention
+
+While the concept of attention was not new, the paper's titular breakthrough—'Attention Is All You Need' [CITATION]—hinged on a powerful twist: applying this mechanism not *between* an encoder and decoder, but *within* the input sequence itself. This is the innovation of **self-attention**.
+
+To understand the distinction, imagine traditional encoder-decoder attention as a student (the decoder) looking up specific, relevant information in a book (the encoder) to answer a question. Self-attention, by contrast, is the entire book's text analyzing itself. Every word figures out how it relates to every other word to establish a unified, contextual meaning for the entire narrative. This process happens for every single word in the input, simultaneously and in parallel.
+
+The mechanism works by giving each word (or more precisely, each token's numerical representation) three distinct roles. It generates a **Query** (what am I looking for?), a **Key** (what can I offer to others?), and a **Value** (my core information). For a given word, its Query is compared against the Key of every other word in the sequence. The result of each comparison is a score representing the strength of the relationship. These scores are then normalized and used to create a weighted sum of all the Values. The output is a new, refined representation of the original word, now infused with the immediate context of every other word it deemed relevant.
+
+Consider the classic example: "The animal didn't cross the street because it was too tired." The self-attention mechanism for the word "it" would calculate a very high relationship score with "animal" (resolving the pronoun) and a very low score with "street." This dynamic, context-aware representation is the foundation of the model's deep understanding. A crucial mathematical nuance ensures this process remains stable during training: the scores are **scaled** by the square root of the dimension of the keys. This "scaled dot-product" step prevents the gradients from becoming vanishingly small, allowing the model to learn effectively.
+
+[DIAGRAM_PLACEHOLDER: Two side-by-side figures. Left: "Encoder-Decoder Attention" with arrows from Decoder blocks to Encoder blocks. Right: "Self-Attention" with a sentence and criss-crossing arrows connecting every word to every other word.]
+
+This ability for each element to directly incorporate context from every other position in the sequence, all computed in parallel, is the revolutionary core that the rest of the Transformer architecture is designed to support and enhance.
