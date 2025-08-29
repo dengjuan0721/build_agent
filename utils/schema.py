@@ -53,3 +53,10 @@ class StructuredPlan(BaseModel):
     # 现在，我们使用统一的、可递归的 PlanSection
     content_structure: List[PlanSection] = Field(
         description="The main, hierarchical structure of the essay, starting with the Introduction.")
+
+# from pydantic import BaseModel, Field
+
+class ProposedEdit(BaseModel):
+    """A structured representation of a proposed edit."""
+    revised_content: str = Field(description="The full, revised text of the paragraph.")
+    ai_reasoning: str = Field(description="A brief explanation of the changes made and why, based on the user's prompt.")

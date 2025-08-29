@@ -8,12 +8,16 @@ from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_deepseek import ChatDeepSeek
+from langchain_google_genai import ChatGoogleGenerativeAI
+from tenacity import retry, stop_after_attempt, wait_exponential, RetryCallState
+
 
 # ... (imports)
-from .prompts import (
+from .prompts_chinese import (
     INITIAL_PLAN_PROMPT, REFLECTION_AND_REFINEMENT_PROMPT, CRITIQUE_PLAN_PROMPT,
     RESEARCH_PLAN_PROMPT, RESEARCH_CRITIQUE_PROMPT
 )
+from .sub_phrase import log_before_retry
 
 
 # --- 定义状态和模型 ---
@@ -103,6 +107,8 @@ class PlannerGraph:
         return {"plan": response.content, "revision_number": 0}
 
     # research_plan_node 保持不变
+    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10),
+           before_sleep=log_before_retry)
     def research_plan_node(self, state: AgentState):
         queries = self.llm.with_structured_output(Queries).invoke([
             SystemMessage(content=RESEARCH_PLAN_PROMPT),
@@ -124,6 +130,8 @@ class PlannerGraph:
         return {"critique": response.content}
 
     # research_critique_node 保持不变
+    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10),
+           before_sleep=log_before_retry)
     def research_critique_node(self, state: AgentState):
         queries = self.llm.with_structured_output(Queries).invoke([
             SystemMessage(content=RESEARCH_CRITIQUE_PROMPT),

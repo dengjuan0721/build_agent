@@ -10,7 +10,7 @@ from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_deepseek import ChatDeepSeek
 from tenacity import retry, stop_after_attempt, wait_exponential, RetryCallState
 
-from .prompts import SECTION_WRITER_PROMPT, SECTION_REFLECTION_PROMPT, SECTION_RESEARCH_PROMPT, SECTION_PLAN_PROMPT, SECTION_RESEARCH_PLAN_PROMPT
+from .prompts_chinese import SECTION_WRITER_PROMPT, SECTION_REFLECTION_PROMPT, SECTION_RESEARCH_PROMPT, SECTION_PLAN_PROMPT, SECTION_RESEARCH_PLAN_PROMPT
 import json
 
 

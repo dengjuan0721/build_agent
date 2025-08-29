@@ -9,7 +9,7 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_deepseek import ChatDeepSeek
 
-from .prompts import INITIAL_PARSE_PROMPT, REFLECTION_PARSE_PROMPT, REVISION_PARSE_PROMPT
+from .prompts_chinese import INITIAL_PARSE_PROMPT, REFLECTION_PARSE_PROMPT, REVISION_PARSE_PROMPT
 from utils.schema import StructuredPlan  # ! 从 schemas.py 导入
 
 

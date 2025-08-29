@@ -1,220 +1,527 @@
 {
-  'objective': 'Demystify the Transformer neural network architecture introduced in the 2017 paper "Attention Is All You Need", explaining how it replaced sequential processing with self-attention, enabling parallel computation and powering the current generation of generative AI.',
-  'target_audience': 'Technically curious non-experts (e.g., software engineers, students, product managers)',
-  'tone': 'Explanatory, accessible, building intuition through analogies before introducing precise terminology',
-  'content_structure': [
+  "objective": "系统性地阐述大语言模型中Tokenizer的关键技术，从基本概念到算法原理、实际应用、挑战优化以及未来趋势，为读者提供全面的知识框架",
+  "target_audience": "自然语言处理从业者、AI研究人员、对大型语言模型技术感兴趣的开发者和技术爱好者",
+  "tone": "权威专业、技术深入、系统全面",
+  "content_structure": [
     {
-      'title': 'Introduction: The Engine of the AI Revolution',
-      'details': 'Start with the palpable impact of ChatGPT, Claude, and Copilot. Frame them not as magic, but as applications powered by a fundamental architectural breakthrough. Briefly set the stage with the pre-2017 AI landscape, mentioning the dominance of Recurrent Neural Networks (RNNs) and LSTMs for tasks like translation and text analysis, while hinting at their critical weaknesses: slow, sequential training and poor memory for long texts. This essay will demystify the Transformer, the neural network architecture introduced in the 2017 paper "Attention Is All You Need." We will explore how it replaced sequential processing with a mechanism called self-attention, enabling parallel computation, overcoming previous limitations, and ultimately powering the current generation of generative AI.',
-      'sub_sections': None
-    },
-    {
-      'title': 'The Problem: Why Old Architectures Hit a Wall',
-      'details': None,
-      'sub_sections': [
+      "title": "1. 引言",
+      "details": null,
+      "sub_sections": [
         {
-          'title': 'The Sequential Bottleneck',
-          'details': 'Explain how RNNs process data one word at a time, like a person reading a sentence word-by-word. This prevents using parallel hardware (GPUs/TPUs) efficiently, making training painfully slow.',
-          'sub_sections': None
+          "title": "背景介绍",
+          "details": "简述GPT、BERT等大语言模型在自然语言处理（NLP）领域的革命性影响，及其在文本生成、语义理解等任务中的核心作用。",
+          "sub_sections": null
         },
         {
-          'title': 'The Vanishing Gradient Problem',
-          'details': 'Describe the difficulty of learning connections between words far apart in a sequence (e.g., the subject of a long sentence and the verb at the end). Use an analogy of a whisper being passed down a long line of people—it gets lost or distorted.',
-          'sub_sections': None
+          "title": "核心问题引出",
+          "details": "强调原始文本需转化为模型可处理的数值形式，而Tokenizer是实现这一转化的关键预处理组件，直接决定模型性能上限。",
+          "sub_sections": null
         },
         {
-          'title': 'A Partial Solution: Attention Mechanisms',
-          'details': 'Introduce the concept of "attention" as it existed before Transformers. Explain it as a way for RNN-based models to "look back" at the most relevant parts of the input sequence when producing an output. Position this as a helpful band-aid on a flawed architecture.',
-          'sub_sections': None
+          "title": "文章结构概览",
+          "details": "明确本文将从基本概念、算法原理、实际应用、挑战与优化、未来趋势层层深入，为读者提供系统性的知识框架。",
+          "sub_sections": null
         }
       ]
     },
     {
-      'title': 'The Breakthrough: "Attention Is All You Need"',
-      'details': None,
-      'sub_sections': [
+      "title": "2. Tokenizer基本概念：从文本到Token的桥梁",
+      "details": null,
+      "sub_sections": [
         {
-          'title': 'The 2017 Paper',
-          'details': 'Introduce the seminal work by Vaswani et al. from Google Research. Position it as a radical proposal.',
-          'sub_sections': None
-        },
-        {
-          'title': 'The Core Philosophy',
-          'details': 'Their audacious idea was to completely discard recurrence (RNNs) and convolutions. Instead, they proposed building an architecture *entirely* on attention mechanisms.',
-          'sub_sections': None
-        },
-        {
-          'title': 'Defining the Goal',
-          'details': 'The mission was to create a model that was more accurate, significantly faster to train, and could handle long-range dependencies with ease.',
-          'sub_sections': None
-        }
-      ]
-    },
-    {
-      'title': 'The Core Innovation: Understanding Self-Attention',
-      'details': 'This critical transition section clarifies the crucial distinction between traditional attention and self-attention. Old (Encoder-Decoder) Attention involved the decoder looking at the encoder\'s output, while New (Self-Attention) means the input sequence looks at *itself*—all words in a sentence are related to each other simultaneously to create a richer understanding. Use a detailed analogy: to interpret the meaning of the word "it" in the sentence "The animal didn\'t cross the street because it was too tired," the model learns to assign high attention weights to "animal" and low weights to "street," figuring out relationships between all words. Briefly note that the mathematical dot product is scaled to maintain stable gradients during training, preventing the softmax function from becoming saturated.',
-      'sub_sections': None
-    },
-    {
-      'title': 'Deconstructing the Transformer Architecture',
-      'details': None,
-      'sub_sections': [
-        {
-          'title': 'High-Level Blueprint',
-          'details': 'Describe the flow at the highest level: Input -> Encoding -> Output. Use a simple machine translation example (English in, French out).',
-          'sub_sections': None
-        },
-        {
-          'title': 'Input Embedding',
-          'details': 'Converting words into numerical vectors (a list of numbers that capture meaning). Analogy: Like giving every word a unique, dense barcode.',
-          'sub_sections': None
-        },
-        {
-          'title': 'Positional Encoding',
-          'details': 'Self-attention sees all words at once and has no innate sense of order—the sequence "John hit Bob" and "Bob hit John" would initially look identical. The solution is Positional Encoding: a unique signal added to each word\'s embedding to tell the model its position in the sequence. Analogy: Adding a timestamp to every word in a transcript.',
-          'sub_sections': None
-        },
-        {
-          'title': 'The Encoder Stack (The "Understanding" Machine)',
-          'details': 'Processes the input sequence to build a deep, contextualized understanding of it.',
-          'sub_sections': [
+          "title": "核心定义",
+          "details": null,
+          "sub_sections": [
             {
-              'title': 'Multi-Head Self-Attention',
-              'details': 'Instead of one set of attention weights, the Transformer uses multiple "heads" (e.g., 8 or 12), each learning different types of relationships. One head might focus on grammatical relationships (e.g., subject-verb), another on semantic meaning (e.g., entity recognition), and another on long-distance dependencies. Like a team of experts each analyzing a document from a different perspective.',
-              'sub_sections': None
+              "title": "Tokenizer的本质",
+              "details": "将自然语言文本分割为基本单元（tokens）的算法与组件。",
+              "sub_sections": null
             },
             {
-              'title': 'Feed-Forward Network',
-              'details': 'A standard neural network applied independently to each position to further process and transform the information gathered by the attention heads.',
-              'sub_sections': None
-            },
-            {
-              'title': 'Residual Connections & Layer Normalization',
-              'details': 'Technical details include a "skip connection" that adds the input of a layer to its output, and a normalization step. These are stabilizers that allow for training very deep networks by preventing the vanishing gradient problem and ensuring stable learning. Analogy: Training wheels for deep learning.',
-              'sub_sections': None
+              "title": "Token的形态",
+              "details": "可能是单词（如\"apple\"）、子词（如\"un\", \"##able\"）、字符（如\"a\"）或标点。",
+              "sub_sections": null
             }
           ]
         },
         {
-          'title': 'The Decoder Stack (The "Generating" Machine)',
-          'details': "Generates the output sequence (e.g., the translated sentence) one token at a time, using the encoder's understanding and its own previous outputs.",
-          'sub_sections': [
+          "title": "为何需要Tokenization",
+          "details": null,
+          "sub_sections": [
             {
-              'title': 'Masked Multi-Head Self-Attention',
-              'details': 'Similar to the encoder\'s attention, but with a "mask" that prevents the model from seeing future words in the output sequence during training. This forces the model to learn to predict the next word based only on words already generated, mimicking how it will work during inference (autoregression).',
-              'sub_sections': None
+              "title": "解决词汇表爆炸问题",
+              "details": "尤其对于富含形态变化的语言。",
+              "sub_sections": null
             },
             {
-              'title': 'Encoder-Decoder Attention',
-              'details': 'This is where the decoder "consults" the encoder\'s final output—the classic attention mechanism. As the decoder writes each word of the translation, it looks back at the most relevant parts of the original input sentence to inform its choice.',
-              'sub_sections': None
+              "title": "提升模型处理未见词（OOV）的泛化能力",
+              "details": null,
+              "sub_sections": null
+            },
+            {
+              "title": "适应多语言文本混合处理的复杂场景",
+              "details": null,
+              "sub_sections": null
+            }
+          ]
+        },
+        {
+          "title": "基础术语详解",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "编码（Encoding）",
+              "details": "文本 → Token ID序列的过程。",
+              "sub_sections": null
+            },
+            {
+              "title": "解码（Decoding）",
+              "details": "Token ID序列 → 还原文本的过程（需处理合并规则与特殊符号）。",
+              "sub_sections": null
+            },
+            {
+              "title": "词汇表（Vocabulary）",
+              "details": "模型所识别的所有Token的集合。",
+              "sub_sections": null
             }
           ]
         }
       ]
     },
     {
-      'title': 'Why Transformers Are So Powerful: Key Advantages',
-      'details': None,
-      'sub_sections': [
+      "title": "3. 主流Tokenizer类型及其核心算法",
+      "details": null,
+      "sub_sections": [
         {
-          'title': 'Parallelization',
-          'details': 'The entire input sequence is processed simultaneously, not sequentially. This leverages modern GPU/TPU hardware perfectly, leading to orders-of-magnitude faster training.',
-          'sub_sections': None
-        },
-        {
-          'title': 'Superior Long-Range Dependency Handling',
-          'details': 'Self-attention creates a direct connection between any two words, regardless of distance. The "vanishing gradient" problem is effectively solved.',
-          'sub_sections': None
-        },
-        {
-          'title': 'Scalability',
-          'details': 'The architecture is perfectly suited to be scaled up by adding more layers (depth) and more parameters (width), directly leading to the era of Large Language Models (LLMs).',
-          'sub_sections': None
-        },
-        {
-          'title': 'Transfer Learning & Fine-Tuning',
-          'details': 'The ability to pre-train a massive Transformer on a huge text corpus (e.g., all of Wikipedia) to learn general language understanding, and then quickly fine-tune it for specific tasks (e.g., legal document review, customer support chatbot) with minimal additional data.',
-          'sub_sections': None
-        }
-      ]
-    },
-    {
-      'title': 'Real-World Impact: Beyond the Paper',
-      'details': None,
-      'sub_sections': [
-        {
-          'title': 'Natural Language Processing (NLP)',
-          'details': None,
-          'sub_sections': [
+          "title": "基于单词的Tokenization",
+          "details": null,
+          "sub_sections": [
             {
-              'title': 'Machine Translation',
-              'details': 'The original task (Google Translate now uses Transformers).',
-              'sub_sections': None
+              "title": "方法",
+              "details": "通常按空格/标点分割（如英文NLTK工具）。",
+              "sub_sections": null
             },
             {
-              'title': 'Generative Models',
-              'details': 'GPT, ChatGPT, Claude, Bard (Autoregressive Decoders).',
-              'sub_sections': None
+              "title": "优点",
+              "details": "简单直观，易于实现。",
+              "sub_sections": null
             },
             {
-              'title': 'Understanding Models',
-              'details': 'BERT (Bidirectional Encoder Representations from Transformers) for search, sentiment analysis, and question-answering.',
-              'sub_sections': None
-            },
-            {
-              'title': 'Summarization & Content Creation',
-              'details': None,
-              'sub_sections': None
+              "title": "缺点",
+              "details": "无法处理未登录词；对德语、芬兰语等复合词众多的语言效果差；词汇表易膨胀。",
+              "sub_sections": null
             }
           ]
         },
         {
-          'title': "Beyond Text: The Transformer's Versatility",
-          'details': None,
-          'sub_sections': [
+          "title": "基于字符的Tokenization",
+          "details": null,
+          "sub_sections": [
             {
-              'title': 'Vision Transformers (ViT)',
-              'details': 'Breaking images into patches and processing them as a sequence, rivaling Convolutional Neural Networks (CNNs) in image classification.',
-              'sub_sections': None
+              "title": "方法",
+              "details": "将文本拆分为单个字符（如UTF-8编码）。",
+              "sub_sections": null
             },
             {
-              'title': 'Audio & Speech',
-              'details': 'Models like Whisper for speech-to-text translation.',
-              'sub_sections': None
+              "title": "优点",
+              "details": "词汇表极小（~256个字符），基本无未登录词问题。",
+              "sub_sections": null
             },
             {
-              'title': 'Biology',
-              'details': 'For modeling protein sequences and DNA.',
-              'sub_sections': None
+              "title": "缺点",
+              "details": "序列长度过长，计算效率低；语义单元破碎，模型学习难度高。",
+              "sub_sections": null
+            }
+          ]
+        },
+        {
+          "title": "基于子词的Tokenization（当前大模型主流方案）",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "Byte Pair Encoding (BPE)",
+              "details": null,
+              "sub_sections": [
+                {
+                  "title": "算法步骤",
+                  "details": null,
+                  "sub_sections": [
+                    {
+                      "title": "初始词汇表为所有基础字符",
+                      "details": null,
+                      "sub_sections": null
+                    },
+                    {
+                      "title": "在语料库中统计所有相邻符号对的频率",
+                      "details": null,
+                      "sub_sections": null
+                    },
+                    {
+                      "title": "将最高频的符号对合并为一个新符号，加入词汇表",
+                      "details": null,
+                      "sub_sections": null
+                    },
+                    {
+                      "title": "重复步骤2-3，直到达到预设词汇表大小",
+                      "details": null,
+                      "sub_sections": null
+                    }
+                  ]
+                },
+                {
+                  "title": "特点",
+                  "details": "由GPT系列、RoBERTa等模型采用；贪婪迭代合并，频次驱动。",
+                  "sub_sections": null
+                }
+              ]
             },
             {
-              'title': 'Multimodal Models',
-              'details': 'Combining text, image, and audio inputs (e.g., GPT-4V).',
-              'sub_sections': None
+              "title": "WordPiece",
+              "details": null,
+              "sub_sections": [
+                {
+                  "title": "算法步骤",
+                  "details": null,
+                  "sub_sections": [
+                    {
+                      "title": "初始词汇表为所有单词（或字符）及常见子词",
+                      "details": null,
+                      "sub_sections": null
+                    },
+                    {
+                      "title": "基于似然函数计算合并每对符号带来的增益（而非单纯频次）",
+                      "details": null,
+                      "sub_sections": null
+                    },
+                    {
+                      "title": "选择增益最大的对进行合并",
+                      "details": null,
+                      "sub_sections": null
+                    }
+                  ]
+                },
+                {
+                  "title": "特点",
+                  "details": "由BERT、DistilBERT采用；合并策略更注重语言模型概率。",
+                  "sub_sections": null
+                }
+              ]
+            },
+            {
+              "title": "Unigram Language Model",
+              "details": null,
+              "sub_sections": [
+                {
+                  "title": "算法步骤",
+                  "details": null,
+                  "sub_sections": [
+                    {
+                      "title": "初始一个大词汇表（如所有常见子词+字符）",
+                      "details": null,
+                      "sub_sections": null
+                    },
+                    {
+                      "title": "基于当前词汇表与Unigram语言模型概率，评估每个符号的重要性",
+                      "details": null,
+                      "sub_sections": null
+                    },
+                    {
+                      "title": "迭代移除对整体似然度影响最小的符号",
+                      "details": null,
+                      "sub_sections": null
+                    }
+                  ]
+                },
+                {
+                  "title": "特点",
+                  "details": "由SentencePiece工具支持；可反向从大到小剪枝词汇表。",
+                  "sub_sections": null
+                }
+              ]
+            },
+            {
+              "title": "SentencePiece",
+              "details": null,
+              "sub_sections": [
+                {
+                  "title": "特点",
+                  "details": "统一框架，支持BPE/Unigram；可直接从原始文本学习，无需预分词；将空格视为特殊符号，完美支持无空格语言（如中文、日文）。",
+                  "sub_sections": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "对比与总结",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "制表对比三类方法在词汇表大小、OOV处理、多语言支持、计算效率等方面的差异",
+              "details": null,
+              "sub_sections": null
+            },
+            {
+              "title": "强调子词方法在效率与泛化能力间的卓越平衡",
+              "details": null,
+              "sub_sections": null
             }
           ]
         }
       ]
     },
     {
-      'title': 'Conclusion: A Paradigm Shift and a Look Ahead',
-      'details': None,
-      'sub_sections': [
+      "title": "4. Tokenizer在大模型中的实现、影响与挑战",
+      "details": null,
+      "sub_sections": [
         {
-          'title': 'Recap',
-          'details': 'The Transformer replaced sequential processing with parallelized self-attention, solving critical problems of speed and memory to unlock a new scale of AI model.',
-          'sub_sections': None
+          "title": "训练阶段：Tokenizer作为独立预处理组件",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "训练流程",
+              "details": "在大规模语料上独立训练Tokenizer，生成词汇表与合并规则（此过程与模型训练分离）。",
+              "sub_sections": null
+            },
+            {
+              "title": "关键影响",
+              "details": null,
+              "sub_sections": [
+                {
+                  "title": "词汇表大小直接影响模型嵌入层参数规模与训练内存占用",
+                  "details": null,
+                  "sub_sections": null
+                },
+                {
+                  "title": "Token序列长度影响计算复杂度（尤其对于Attention机制）",
+                  "details": null,
+                  "sub_sections": null
+                },
+                {
+                  "title": "分词质量影响模型对语义、句法的捕捉能力",
+                  "details": null,
+                  "sub_sections": null
+                }
+              ]
+            }
+          ]
         },
         {
-          'title': 'Reiterate Impact',
-          'details': "It is the foundational architecture behind the LLMs that are reshaping technology and society. It is more than a model; it's a new way of thinking about data processing.",
-          'sub_sections': None
+          "title": "推理阶段：编码与解码的实际运作",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "编码（输入）",
+              "details": "文本 → 添加特殊Token（[CLS], [SEP]）→ 分词 → 映射为ID → 添加Padding/Truncation。",
+              "sub_sections": null
+            },
+            {
+              "title": "解码（输出，生成式模型关键）",
+              "details": "ID序列 → 映射回Token → 合并子词（如\"un\", \"##able\" → \"unable\") → 去除特殊符号 → 生成最终文本。",
+              "sub_sections": null
+            },
+            {
+              "title": "解码常见问题",
+              "details": "空格处理不当（如英文）、合并错误（如中文过度切分）。",
+              "sub_sections": null
+            }
+          ]
         },
         {
-          'title': 'Future Outlook / Final Thought',
-          'details': 'Acknowledge that the field does not stand still. Conclude by looking at current challenges of Transformers (immense computational cost, energy consumption, "hallucination") and hint at what might come next (e.g., more efficient architectures like Mixture-of-Experts, RWKV, or perhaps something entirely new that will one day surpass the Transformer).',
-          'sub_sections': None
+          "title": "具体案例深度剖析",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "GPT系列与BPE",
+              "details": "为何选择BPE？如何通过大规模字节级BPE处理多语言？词汇表规模（如GPT-3的50,257）背后的设计权衡。",
+              "sub_sections": null
+            },
+            {
+              "title": "BERT与WordPiece",
+              "details": "WordPiece如何优化掩码语言模型训练？中文BERT为何直接采用字级别Tokenization？",
+              "sub_sections": null
+            },
+            {
+              "title": "T5与SentencePiece",
+              "details": "统一文本降噪任务与多语言支持的实现。",
+              "sub_sections": null
+            }
+          ]
+        },
+        {
+          "title": "对模型性能的核心影响维度",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "上下文长度限制",
+              "details": "如GPT-4的32k tokens如何实现？",
+              "sub_sections": null
+            },
+            {
+              "title": "未知词处理能力",
+              "details": "子词如何破解OOV难题？",
+              "sub_sections": null
+            },
+            {
+              "title": "多语言泛化能力",
+              "details": "单一Tokenizer如何处理百种语言？",
+              "sub_sections": null
+            },
+            {
+              "title": "计算效率",
+              "details": "序列长度 vs. 计算速度。",
+              "sub_sections": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "5. 现实挑战与优化策略",
+      "details": null,
+      "sub_sections": [
+        {
+          "title": "核心挑战",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "多语言混合文本",
+              "details": "单一词汇表对不同语言分配不均，可能导致某些语言分词粗糙。",
+              "sub_sections": null
+            },
+            {
+              "title": "领域特定术语",
+              "details": "医学、法律、科技等领域新词、缩略语、jargon频出，通用Tokenizer力不从心。",
+              "sub_sections": null
+            },
+            {
+              "title": "分词偏差",
+              "details": "过度分割（如将\"learning\"分为\"learn\"和\"##ing\"导致语义破碎）或分割不足（中文新词识别错误）。",
+              "sub_sections": null
+            },
+            {
+              "title": "计算与存储开销",
+              "details": "超大词汇表带来的内存压力与延迟问题。",
+              "sub_sections": null
+            }
+          ]
+        },
+        {
+          "title": "先进解决方案与最佳实践",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "领域自适应",
+              "details": "在领域语料上进一步训练或微调现有Tokenizer（如BioBERT针对生物医学文献）。",
+              "sub_sections": null
+            },
+            {
+              "title": "技术选型",
+              "details": null,
+              "sub_sections": [
+                {
+                  "title": "优先选用成熟库",
+                  "details": "如Hugging Face Tokenizers、SentencePiece，而非从头实现。",
+                  "sub_sections": null
+                },
+                {
+                  "title": "对于中文、日文等无空格语言",
+                  "details": "SentencePiece通常是更优解。",
+                  "sub_sections": null
+                }
+              ]
+            },
+            {
+              "title": "超参数调优",
+              "details": "根据语料规模与特性精心设置词汇表大小、字符覆盖度等。",
+              "sub_sections": null
+            },
+            {
+              "title": "后处理与规则注入",
+              "details": "添加自定义词典或规则以保护特定词汇不被切分。",
+              "sub_sections": null
+            },
+            {
+              "title": "评估与监控",
+              "details": "建立分词质量评估指标（如OOV率、平均token长度），持续监控线上表现。",
+              "sub_sections": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6. 未来展望",
+      "details": null,
+      "sub_sections": [
+        {
+          "title": "算法演进方向",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "更智能的合并策略",
+              "details": "引入深度学习模型动态决定分词边界（已有个别研究尝试）。",
+              "sub_sections": null
+            },
+            {
+              "title": "压缩与效率提升",
+              "details": "探索稀疏词汇表、哈希技巧等压缩技术。",
+              "sub_sections": null
+            }
+          ]
+        },
+        {
+          "title": "架构集成趋势",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "与多模态模型融合",
+              "details": "开发统一Tokenization方案同时处理文本、图像、音频（如CLIP、ULMFiT的尝试）。",
+              "sub_sections": null
+            },
+            {
+              "title": "端到端优化",
+              "details": "将Tokenizer与模型联合训练，而非作为独立预处理模块。",
+              "sub_sections": null
+            }
+          ]
+        },
+        {
+          "title": "生态与工具发展",
+          "details": null,
+          "sub_sections": [
+            {
+              "title": "更强大的开源库持续涌现，降低应用门槛",
+              "details": null,
+              "sub_sections": null
+            },
+            {
+              "title": "针对特定垂直领域的预训练Tokenizer将成为重要资产",
+              "details": null,
+              "sub_sections": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "7. 结语",
+      "details": null,
+      "sub_sections": [
+        {
+          "title": "重申Tokenizer作为大模型基础设施的关键性",
+          "details": "虽处pipeline起点，却直接影响模型能力天花板。",
+          "sub_sections": null
+        },
+        {
+          "title": "核心收获总结",
+          "details": "从算法选择到实践调优，需系统考量语言特性、领域需求与计算约束。",
+          "sub_sections": null
+        },
+        {
+          "title": "鼓励行动",
+          "details": "建议读者利用Hugging Face等工具亲自实验不同Tokenizer，深化理解。",
+          "sub_sections": null
         }
       ]
     }

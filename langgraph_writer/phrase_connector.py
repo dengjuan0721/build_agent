@@ -7,7 +7,7 @@ from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_deepseek import ChatDeepSeek
-from .prompts import CONNECTOR_WRITER_PROMPT, CONNECTOR_REFLECTION_PROMPT, CONNECTOR_REVISION_PROMPT
+from .prompts_chinese import CONNECTOR_WRITER_PROMPT, CONNECTOR_REFLECTION_PROMPT, CONNECTOR_REVISION_PROMPT
 
 # (还需要一个 REVISION_PROMPT，可以复用或定制)
 

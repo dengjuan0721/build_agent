@@ -25,13 +25,6 @@ RESEARCH_CRITIQUE_PROMPT = """You are a researcher charged with providing inform
 be used when making any requested revisions (as outlined below). \
 Generate a list of search queries that will gather any relevant information. Only generate 3 queries max."""
 
-# 文件: planner_module/prompts.py
-
-# (原有的 RESEARCH_* PROMPTS 保持不变)
-# RESEARCH_PLAN_PROMPT = ...
-# RESEARCH_CRITIQUE_PROMPT = ...
-
-# --- 修改后的 Prompts ---
 
 INITIAL_PLAN_PROMPT = """You are an expert content strategist. Your goal is to create a high-level, initial outline for an essay on a given topic. This is just the first draft of the plan.
 
@@ -39,7 +32,7 @@ Topic: {task}
 
 Provide a structured outline with main sections and key bullet points to be covered in each section."""
 
-# 这个 Prompt 现在是 Planner 的核心！
+
 REFLECTION_AND_REFINEMENT_PROMPT = """You are a master planner, critically reviewing a content plan. Your task is to critique the current plan and provide concrete, actionable recommendations for improvement.
 
 **Current Plan:**
@@ -70,6 +63,7 @@ Provide a sharp, constructive critique. Consider the following:
 {plan}
 ---
 """
+
 
 # sub_phrase
 # --- 1. Micro-Planner Prompt ---
@@ -221,7 +215,8 @@ Your Mission:
 Critically review the parsed JSON against the original markdown. Provide a critique focusing on the following quality criteria:
 Check 1: Title Suitability (Most Important!)
 Do the 'title' fields represent actual, reader-facing headings, or are they instructional labels from the plan?
-Instructional labels like "Hook", "Context", "Thesis Statement", "Goal", "Analogy is Mandatory", "CRITICAL ANALOGY" are NOT valid sub-section titles.
+Instructional labels like '应用与用例', '局限与挑战', '影响与遗产', '结论' are NOT valid sub-section titles because they are too wide.
+Replace those wide titles with specific, descriptional and critical words.
 Action: If you find instructional labels used as titles, your critique MUST recommend that they be merged into their parent section's 'details' field, rather than being treated as separate sub-sections.
 Check 2: Structural Integrity & Completeness
 Does the JSON hierarchy accurately reflect the nesting in the markdown?
@@ -281,8 +276,7 @@ When you are writing a conclude, provide a brief roadmap conclusion of the sub-s
 The paragraph must logically connect to the *previous* major section (visible in the Table of Contents).
 Write in chinese.
 """
-# 注意：为了简化，我们可以让一个 Agent 写引言，另一个 Agent（或同 Agent 的另一次调用）写总结。
-# 这里我们先专注于写引言。
+
 
 CONNECTOR_REFLECTION_PROMPT = """You are a critical editor reviewing a transitional paragraph.
 
@@ -302,7 +296,6 @@ The paragraph is meant to {mode} the section titled "{section_title}". It should
 **Your Mission:**
 Critique the draft. Is it engaging?  Does it create a smooth transition? Is the tone correct? If it's perfect, respond with "PERFECTLY_WRITTEN". Otherwise, provide specific points for improvement.
 """
-# 文件: connector_writer/prompts.py
 
 CONNECTOR_REVISION_PROMPT = """You are a master of prose and an expert editor. You previously wrote a draft for an {mode} paragraph, but it received some critique. Your task is to **rewrite the draft**, fully incorporating the provided feedback.
 
