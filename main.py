@@ -11,6 +11,7 @@ from langgraph_writer import ConnectorWriterGraph
 from utils.to_my_file import save_it
 from utils.recursion import process_plan_recursively
 from langgraph_writer import EditGraph
+from memory_chat import ingest_notebook_to_long_term_memory
 from utils.concurrent_recursion import process_plan_recursively_async
 from pdfs_rag import search_pdf_agent
 import asyncio
@@ -137,6 +138,11 @@ async def main():
         for s in editor.run(initial_state):
             print(s)
             print("---")
+
+    notebook_file = "/Users/dengjuan1/build_agent/Notebook4Revise/Tokenizer_chinese.json"
+    user = "dengjuan"
+
+    await ingest_notebook_to_long_term_memory(notebook_path=notebook_file, user_id=user)
 
 
 
