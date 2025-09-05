@@ -1,0 +1,32 @@
+[
+    {
+        "type": "intro",
+        "location_description": "Section: '1. 引言'",
+        "content_preview": "在深入探讨大语言模型的核心组件...为后续深入的技术讨论做好铺垫。",
+        "edit_history": []
+    },
+    {
+        "type": "leaf",
+        "location_description": "Section: '背景介绍'",
+        "content_preview": "在自然语言处理（NLP）的浪潮...是我们接下来要探讨的核心问题。",
+        "edit_history": []
+    },
+    {
+        "type": "leaf",
+        "location_description": "Section: '核心问题引出'",
+        "content_preview": "尽管大语言模型在自然语言处理中...为读者提供一个全面的知识框架。",
+        "edit_history": []
+    },
+    {
+        "type": "leaf",
+        "location_description": "Section: '文章结构概览'",
+        "content_preview": "明确了Tokenizer的关键...奠定整个知识体系的第一块基石。",
+        "edit_history": []
+    },
+    {
+        "type": "conclusion",
+        "location_description": "Section: '1. 引言'",
+        "content_preview": "综上所述，本章作为全文的基石，...具体架构，步入技术细节的纵深。",
+        "edit_history": []
+    }
+]

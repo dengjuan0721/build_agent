@@ -33,6 +33,16 @@ class ConnectorWriterGraph:
         )
         self.tavily_client = TavilyClient(api_key=os.environ["TAVILY_API_KEY"])
         self.conn_string = conn_string
+        
+        # 初始化记忆管理器
+        try:
+            from .memory_manager import WritingMemoryManager
+            self.memory_manager = WritingMemoryManager()
+            print("✅ ConnectorWriter: 长期记忆管理器已初始化")
+        except Exception as e:
+            print(f"⚠️ ConnectorWriter: 记忆管理器初始化失败: {e}")
+            self.memory_manager = None
+            
         self.builder = self._build_graph()
         self.graph = None
         self.checkpointer = SqliteSaver.from_conn_string(self.conn_string)
@@ -97,6 +107,25 @@ class ConnectorWriterGraph:
                 mode=state['mode']
             )
 
+        # 🧠 集成长期记忆：根据模式添加写作指导
+        if self.memory_manager:
+            try:
+                # 根据模式确定section_type：intro/conclude
+                section_type = "intro" if state['mode'] == 'intro' else "intro"  # conclude暂用intro的经验
+                print(f"\n📝 [ConnectorWriter] 正在为{state['mode']}模式集成长期记忆...")
+                
+                # 获取该类型的写作指导
+                memory_guidance = self.memory_manager.get_writing_guidance(section_type)
+                
+                if memory_guidance:
+                    human_prompt_content = human_prompt_content + memory_guidance + "\n\n请参考以上写作原则进行内容创作。"
+                    print(f"   ✅ 已将{section_type}类型写作指导集成到{state['mode']}模式prompt中")
+                else:
+                    print(f"   ⚠️ 未获取到写作指导，使用原始prompt")
+                    
+            except Exception as e:
+                print(f"   ❌ 记忆集成失败: {e}")
+
         # 3. 构建消息列表并调用 LLM
         messages = [
             SystemMessage(content=system_prompt_content),
@@ -129,6 +158,25 @@ class ConnectorWriterGraph:
 
         # 3. 准备 HumanMessage：提供需要被评审的具体草稿
         human_prompt_content = f"Here is the draft you need to review and critique:\n\n---\n{state['draft']}\n---"
+
+        # 🧠 集成长期记忆：添加详细的反思检查清单
+        if self.memory_manager:
+            try:
+                # 根据模式确定section_type：intro/conclude
+                section_type = "intro" if state['mode'] == 'intro' else "intro"  # conclude暂用intro的经验
+                print(f"\n🔍 [ConnectorWriter] 正在为{state['mode']}模式集成反思检查清单...")
+                
+                # 获取该类型的反思检查清单
+                reflection_checklist = self.memory_manager.get_reflection_checklist(section_type)
+                
+                if reflection_checklist:
+                    human_prompt_content = human_prompt_content + reflection_checklist + "\n\n请仔细对照以上检查清单，逐项检验当前草稿是否符合历史修改建议。"
+                    print(f"   ✅ 已将{section_type}类型检查清单集成到{state['mode']}模式reflection prompt中")
+                else:
+                    print(f"   ⚠️ 未获取到检查清单，使用原始prompt")
+                    
+            except Exception as e:
+                print(f"   ❌ 检查清单集成失败: {e}")
 
         # 4. 构建消息列表并调用 LLM
         messages = [

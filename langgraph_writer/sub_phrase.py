@@ -64,6 +64,16 @@ class SectionWriterGraph:
         )
         self.tavily_client = TavilyClient(api_key=os.environ["TAVILY_API_KEY"])
         self.conn_string = conn_string
+        
+        # 初始化记忆管理器
+        try:
+            from .memory_manager import WritingMemoryManager
+            self.memory_manager = WritingMemoryManager()
+            print("✅ SectionWriter: 长期记忆管理器已初始化")
+        except Exception as e:
+            print(f"⚠️ SectionWriter: 记忆管理器初始化失败: {e}")
+            self.memory_manager = None
+            
         self.builder = self._build_graph()
         self.graph = None
         self.checkpointer = SqliteSaver.from_conn_string(self.conn_string)
@@ -146,8 +156,27 @@ class SectionWriterGraph:
             micro_plan=state['micro_plan'],
             content=content_str
         )
-        messages = [SystemMessage(content=prompt)
-                    ]
+        
+        # 🧠 集成长期记忆：添加通用写作指导
+        if self.memory_manager:
+            try:
+                # SectionWriterGraph 主要用于叶子节点
+                section_type = "leaf"
+                print(f"\n📝 [SectionWriter] 正在为叶子节点集成长期记忆...")
+                
+                # 获取该类型的写作指导
+                memory_guidance = self.memory_manager.get_writing_guidance(section_type)
+                
+                if memory_guidance:
+                    prompt = prompt + memory_guidance + "\n\n请参考以上写作原则进行内容创作。"
+                    print(f"   ✅ 已将写作指导集成到generation prompt中")
+                else:
+                    print(f"   ⚠️ 未获取到写作指导，使用原始prompt")
+                    
+            except Exception as e:
+                print(f"   ❌ 记忆集成失败: {e}")
+        
+        messages = [SystemMessage(content=prompt)]
         response = self.llm.invoke(messages)
         return {
             "draft": response.content,
@@ -163,6 +192,26 @@ class SectionWriterGraph:
             micro_plan=state['micro_plan'],
             draft=state['draft']
         )
+        
+        # 🧠 集成长期记忆：添加详细的反思检查清单
+        if self.memory_manager:
+            try:
+                # SectionWriterGraph 主要用于叶子节点
+                section_type = "leaf"
+                print(f"\n🔍 [SectionWriter] 正在为叶子节点集成反思检查清单...")
+                
+                # 获取该类型的反思检查清单
+                reflection_checklist = self.memory_manager.get_reflection_checklist(section_type)
+                
+                if reflection_checklist:
+                    prompt = prompt + reflection_checklist + "\n\n请仔细对照以上检查清单，逐项检验当前草稿是否符合历史修改建议。"
+                    print(f"   ✅ 已将检查清单集成到reflection prompt中")
+                else:
+                    print(f"   ⚠️ 未获取到检查清单，使用原始prompt")
+                    
+            except Exception as e:
+                print(f"   ❌ 检查清单集成失败: {e}")
+        
         messages = [SystemMessage(content=prompt)]
         response = self.llm.invoke(messages)
         return {"critique": response.content}

@@ -11,14 +11,14 @@ from langgraph_writer import ConnectorWriterGraph
 from utils.to_my_file import save_it
 from utils.recursion import process_plan_recursively
 from langgraph_writer import EditGraph
-from memory_chat import ingest_notebook_to_long_term_memory
+# from memory_chat import ingest_notebook_to_long_term_memory
 from utils.concurrent_recursion import process_plan_recursively_async
 from pdfs_rag import search_pdf_agent
 import asyncio
 #%%
 async def main():
     # 2. 定义任务
-    task = "大模型关键技术结点:Tokenizer"
+    task = "大模型关键技术:动态embedding"
 
     print(f"--- Starting essay generation for task: '{task}' ---")
 
@@ -54,7 +54,7 @@ async def main():
 
     save_it(json.dumps(final_parser,indent=4, ensure_ascii=False), f"Content:{task}_chinese.json", "structured_json")
 
-    with open('/Users/dengjuan1/build_agent/parsed_json.json', 'r', encoding='utf-8') as f:
+    with open('/Users/dengjuan1/build_agent/structured_json/Content:大模型关键技术:动态embedding_chinese.json', 'r', encoding='utf-8') as f:
         # 3. 尝试将文件内容解析为 JSON
         final_parser = json.load(f)
 
@@ -69,7 +69,7 @@ async def main():
     i=0
     for top_level_section in final_parser['content_structure']:
         i+=1
-        if i > 3:
+        if i >= 2:
             continue
         section_content, section_notebook_entries = process_plan_recursively(
             top_level_section,
@@ -116,39 +116,38 @@ async def main():
 
     save_it(json.dumps(notebook_entries,indent=4, ensure_ascii=False), f"Notebook:{task}_chinese.json", "Notebook4Revise")
 
-    #回顾和修改
-
-    notebook_path = "Notebook4Revise/Tokenizer_chinese.json"
-    file_to_edit_path = "大模型关键技术结点:Tokenizer/01_1. 引言.md"
-    notebook_mark="leafSection: '核心问题引出'" #input("给出修改段落在修订记事本上所属的的段落标签：type+location_description")
-    original_content = "权威观点指出，Tokenizer是模型预处理中的核心环节，其优化能显著提升模型整体表现。" #input("给出需要修订的内容")
-    user_prompt="这句话提到了`权威观点指出`,可是并没有一个具体的引用，如果无法找到确切的引用情况应该避免用`权威观点`这种模糊的代指"#input("给出修订指示")
-
-    initial_state = {
-        "notebook_path": notebook_path,
-        "file_to_edit_path": file_to_edit_path,
-        "notebook_mark": notebook_mark, #type+location_description
-        "original_content": original_content,
-        "initial_user_prompt": user_prompt,
-        "proposed_edit":[],
-        "user_feedback":"",
-        "revision_history":""
-    }
-    with EditGraph() as editor:
-        for s in editor.run(initial_state):
-            print(s)
-            print("---")
-
-    notebook_file = "/Users/dengjuan1/build_agent/Notebook4Revise/Tokenizer_chinese.json"
-    user = "dengjuan"
-
-    await ingest_notebook_to_long_term_memory(notebook_path=notebook_file, user_id=user)
+    # #回顾和修改
+    #
+    # notebook_path = "Notebook4Revise/Tokenizer_chinese.json"
+    # file_to_edit_path = "大模型关键技术结点:Tokenizer/01_1. 引言.md"
+    # notebook_mark="leafSection: '核心问题引出'" #input("给出修改段落在修订记事本上所属的的段落标签：type+location_description")
+    # original_content = "权威观点指出，Tokenizer是模型预处理中的核心环节，其优化能显著提升模型整体表现。" #input("给出需要修订的内容")
+    # user_prompt="这句话提到了`权威观点指出`,可是并没有一个具体的引用，如果无法找到确切的引用情况应该避免用`权威观点`这种模糊的代指"#input("给出修订指示")
+    #
+    # initial_state = {
+    #     "notebook_path": notebook_path,
+    #     "file_to_edit_path": file_to_edit_path,
+    #     "notebook_mark": notebook_mark, #type+location_description
+    #     "original_content": original_content,
+    #     "initial_user_prompt": user_prompt,
+    #     "proposed_edit":[],
+    #     "user_feedback":"",
+    #     "revision_history":""
+    # }
+    # with EditGraph() as editor:
+    #     for s in editor.run(initial_state):
+    #         print(s)
+    #         print("---")
+    #
+    # notebook_file = "/Users/dengjuan1/build_agent/Notebook4Revise/Tokenizer_chinese.json"
+    # user = "dengjuan"
+    #
+    # await ingest_notebook_to_long_term_memory(notebook_path=notebook_file, user_id=user)
 
 
 
 #%%
 #concurrent
 
-
-
-
+if __name__ == "__main__":
+    asyncio.run(main())

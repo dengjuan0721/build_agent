@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 # from memory_agent import response_agent, config # 如果你需要调用 agent
 
 # 为了直接与 store 交互，我们需要这些
-from langgraph.store.lancedb import LanceDBStore
-import lancedb
+# from langgraph.store.lancedb import LanceDBStore
+# import lancedb
 from langmem import async_manage_memory  # langmem 提供了直接的函数调用
 
 # 导入阿里 Embedding 模型
@@ -37,11 +37,11 @@ async def ingest_notebook_to_long_term_memory(notebook_path: str, user_id: str):
     # (确保你的 DASHSCOPE_API_KEY 在环境变量中)
     embedding_model = DashScopeEmbeddings(model="text-embedding-v2")
 
-    # b. 连接到 LanceDB 数据库
-    db_connection = lancedb.connect(db_path)
+    # b. 连接到 LanceDB 数据库 (已注释，不再使用)
+    # db_connection = lancedb.connect(db_path)
 
-    # c. 初始化 Store，并传入自定义的 Embedding Function
-    store = LanceDBStore(
+    # c. 初始化 Store，并传入自定义的 Embedding Function (已注释)
+    # store = LanceDBStore(
         db_connection,
         # namespace_template 在这里只是为了结构完整，实际操作时我们会手动构建
         namespace_template=("placeholder", "{langgraph_user_id}", "placeholder"),
